@@ -1,0 +1,6 @@
+C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\CS3005_Game.exe
+C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\CS3005_Game.pdb
+C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.csprojResolveAssemblyReference.cache
+C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.exe
+C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.pdb

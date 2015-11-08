@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS3005_Game", "CS3005_Game\CS3005_Game\CS3005_Game.csproj", "{507F1FE3-22B5-4529-A740-CDFB6C71A737}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "CS3005_GameContent", "CS3005_Game\CS3005_GameContent\CS3005_GameContent.contentproj", "{3BEB4D76-D94B-4920-8609-4F3CD3331B0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{507F1FE3-22B5-4529-A740-CDFB6C71A737}.Debug|x86.ActiveCfg = Debug|x86
+		{507F1FE3-22B5-4529-A740-CDFB6C71A737}.Debug|x86.Build.0 = Debug|x86
+		{507F1FE3-22B5-4529-A740-CDFB6C71A737}.Release|x86.ActiveCfg = Release|x86
+		{507F1FE3-22B5-4529-A740-CDFB6C71A737}.Release|x86.Build.0 = Release|x86
+		{3BEB4D76-D94B-4920-8609-4F3CD3331B0F}.Debug|x86.ActiveCfg = Debug|x86
+		{3BEB4D76-D94B-4920-8609-4F3CD3331B0F}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
