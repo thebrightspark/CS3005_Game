@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using CS3005_Game.Util;
 
 namespace CS3005_Game
 {
@@ -33,7 +34,12 @@ namespace CS3005_Game
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            //Add your initialization logic here
+
+            graphics.PreferredBackBufferWidth = Reference.SCREEN_WIDTH;
+            graphics.PreferredBackBufferHeight = Reference.SCREEN_HEIGHT;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
 
             GameInit.Init();
 
@@ -51,7 +57,7 @@ namespace CS3005_Game
 
             GameContent.Load();
 
-            // TODO: use this.Content to load your game content here
+            //Use this.Content to load your game content here
         }
 
         /// <summary>
@@ -60,7 +66,7 @@ namespace CS3005_Game
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            //Unload any non ContentManager content here
 
             GameContent.Unload();
         }
@@ -76,7 +82,7 @@ namespace CS3005_Game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            //Add your update logic here
 
             GameUpdate.Update(gameTime);
 
@@ -91,7 +97,7 @@ namespace CS3005_Game
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            //Add your drawing code here
 
             GameUpdate.Draw(gameTime, spriteBatch);
 
