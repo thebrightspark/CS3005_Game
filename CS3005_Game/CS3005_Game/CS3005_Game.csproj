@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Entity\EntityBase.cs" />
     <Compile Include="Entity\Player.cs" />
+    <Compile Include="Environment\IRoom.cs" />
     <Compile Include="Environment\RoomBase.cs" />
     <Compile Include="Environment\RoomObjectBase.cs" />
     <Compile Include="Environment\Rooms\RoomLobby.cs" />

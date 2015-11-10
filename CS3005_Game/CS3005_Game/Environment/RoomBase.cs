@@ -3,35 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using CS3005_Game.Util;
 
 namespace CS3005_Game.Environment
 {
-    class RoomBase
+    /// <summary>
+    /// Extend this class to create a Room
+    /// </summary>
+    class RoomBase : IRoom
     {
+        //Room name
         private String Name;
-        private String TexturePath;
+        //Background texture (usually the PRESET_BG with black, walls and green)
+        private TextureManager.DUNGEON_SPRITES[,] TextureBG;
+        //List of all the objects in the room
         private List<RoomObjectBase> RoomObjects = new List<RoomObjectBase>();
 
         public RoomBase(String name)
         {
             Name = name;
-        }
-
-        public void setBackgroundTexture(String path)
-        {
-            TexturePath = path;
-        }
-
-        public String getBackgroundTexture()
-        {
-            return TexturePath;
+            TextureBG = TextureManager.PRESET_BG;
         }
 
         /// <summary>
-        /// Adds a new object to the room
+        /// Sets the background of the Room to an enum DUNGEON_SPRITES 2D array.
+        /// </summary>
+        /// <param name="textureArray"></param>
+        public void setBackgroundTexture(TextureManager.DUNGEON_SPRITES[,] textureArray)
+        {
+            TextureBG = textureArray;
+        }
+
+        public TextureManager.DUNGEON_SPRITES[,] getBackgroundTexture()
+        {
+            return TextureBG;
+        }
+
+        /// <summary>
+        /// Adds a new object to the room.
+        /// All objects are drawn ontop of the background.
         /// </summary>
         /// <param name="obj">The room object</param>
-        public void addNewObject(RoomObjectBase obj)
+        protected void addNewObject(RoomObjectBase obj)
         {
             RoomObjects.Add(obj);
         }
@@ -42,7 +55,7 @@ namespace CS3005_Game.Environment
         /// </summary>
         /// <param name="name">Name of the object</param>
         /// <returns>Success</returns>
-        public bool removeObject(String name)
+        protected bool removeObject(String name)
         {
             for(int i = 0; i < RoomObjects.Count; i++)
             {

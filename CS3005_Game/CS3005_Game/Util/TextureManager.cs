@@ -82,6 +82,13 @@ namespace CS3005_Game.Util
         private static Dictionary<DUNGEON_SPRITES, Rectangle> Sprites = new Dictionary<DUNGEON_SPRITES, Rectangle>();
 
         /// <summary>
+        /// The preset background array for a Room.
+        /// Consists of PLAIN_BLACK around the outside, then WALLs with PLAIN_GREEN filling the center.
+        /// This is populated in the init() method.
+        /// </summary>
+        public static DUNGEON_SPRITES[,] PRESET_BG;
+
+        /// <summary>
         /// Creates and returns a Rectangle for the exact position of a sprite on the spritesheet.
         /// </summary>
         /// <param name="sprite"></param>
@@ -329,6 +336,47 @@ namespace CS3005_Game.Util
             foreach(DUNGEON_SPRITES s in Enum.GetValues(typeof(DUNGEON_SPRITES)))
             {
                 Sprites.Add(s, getTextureRect(s));
+            }
+
+            //Creates the PRESET_BG 2D array.
+            PRESET_BG = new DUNGEON_SPRITES[Reference.SCREEN_GRID_WIDTH, Reference.SCREEN_GRID_HEIGHT];
+            int BGwidth = PRESET_BG.GetLength(0);
+            int BGheight = PRESET_BG.GetLength(1);
+            for (int i = 0; i < BGwidth; ++i )
+            {
+                for (int j = 0; j < BGheight; ++j)
+                {
+                    //Outer edge -> PLAIN_BLACK
+                    if (i == 0 || i == BGwidth - 1 || j == 0 || j == BGheight - 1)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.PLAIN_BLACK;
+                    //Wall -> Top Left
+                    else if (i == 1 && j == 1)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_TL;
+                    //Wall -> Top Right
+                    else if (i == BGwidth - 2 && j == 1)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_TR;
+                    //Wall -> Bottom Left
+                    else if (i == 1 && j == BGheight - 2)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_BL;
+                    //Wall -> Bottom Right
+                    else if (i == BGwidth - 2 && j == BGheight - 2)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_BR;
+                    //Wall -> Top Side
+                    else if (i > 2 && i < BGwidth - 2 && j == 2)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_T;
+                    //Wall -> Left Side
+                    else if (i == 2 && j > 2 && j < BGheight - 2)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_L;
+                    //Wall -> Right Side
+                    else if (i == BGwidth - 2 && j > 2 && j < BGheight - 2)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_R;
+                    //Wall -> Bottom Side
+                    else if (i > 2 && i < BGwidth - 2 && j == BGheight - 2)
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_B;
+                    //Inner -> PLAIN_GREEN
+                    else
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.PLAIN_GREEN;
+                }
             }
         }
 
