@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CS3005_Game.Environment;
+using CS3005_Game.Environment.Rooms;
+using CS3005_Game.Util;
 
 namespace CS3005_Game
 {
@@ -15,7 +16,17 @@ namespace CS3005_Game
         {
             //Use this to initialise all rooms and game objects
 
-            GameData.Rooms.Add(
+            //Initialize textures
+            TextureManager.init();
+
+            //Initialize text
+            GameData.LobbyTitle = new ScreenText(GameData.FontMain, Names.Text.LOBBY_TITLE, Reference.WHITE);
+
+            //Rooms
+            GameData.addRoom(new RoomLobby());
+
+            //Set initial Room to the Lobby
+            GameData.setCurrentRoom(Names.Rooms.LOBBY);
         }
     }
 }

@@ -12,20 +12,10 @@ namespace CS3005_Game
     /// </summary>
     class GameUpdate
     {
-        /// <summary>
-        /// Used to remember which room the player is in.
-        /// This is used to determine what to display and what controls to use etc
-        /// </summary>
-        private static int RoomID = 0;
-
         public static void Update(GameTime gameTime)
         {
-            
-        }
-
-        public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
-        {
-
+            //Runs the update of the current Room
+            GameData.getCurrentRoom().update();
         }
     }
 }

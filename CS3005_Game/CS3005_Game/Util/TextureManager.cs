@@ -18,8 +18,9 @@ namespace CS3005_Game.Util
         /// An enum of all the sprite names.
         /// Use these in conjunction with getSpriteRect()!
         /// </summary>
-        public static readonly enum DUNGEON_SPRITES
+        public enum DUNGEON_SPRITES
         {
+            NULL,
             PLAIN_GREEN,
             PLAIN_BLACK,
             WALL_TL,
@@ -88,6 +89,8 @@ namespace CS3005_Game.Util
         /// </summary>
         public static DUNGEON_SPRITES[,] PRESET_BG;
 
+        public static DUNGEON_SPRITES[] GateSprites = {DUNGEON_SPRITES.GATE_1, DUNGEON_SPRITES.GATE_2, DUNGEON_SPRITES.GATE_3, DUNGEON_SPRITES.GATE_4, DUNGEON_SPRITES.GATE_5};
+
         /// <summary>
         /// Creates and returns a Rectangle for the exact position of a sprite on the spritesheet.
         /// </summary>
@@ -95,8 +98,6 @@ namespace CS3005_Game.Util
         /// <returns></returns>
         private static Rectangle getTextureRect(DUNGEON_SPRITES sprite)
         {
-            Rectangle spriteRect;
-
             int rectWidth, rectHeight;
             int rectX = -1;
             int rectY = -1;
@@ -140,7 +141,7 @@ namespace CS3005_Game.Util
             
             //Get the sprite's location on the spritesheet
             // x
-            switch(sprite)
+            switch (sprite)
             {
                 case DUNGEON_SPRITES.SWITCH_1:
                 case DUNGEON_SPRITES.GATE_1:
@@ -185,6 +186,7 @@ namespace CS3005_Game.Util
                     rectX = 8;
                     break;
                 case DUNGEON_SPRITES.BLOCK_2:
+                case DUNGEON_SPRITES.GATE_4:
                     rectX = 9;
                     break;
                 case DUNGEON_SPRITES.TOTEM_1:
@@ -196,6 +198,7 @@ namespace CS3005_Game.Util
                     break;
                 case DUNGEON_SPRITES.TOTEM_2:
                 case DUNGEON_SPRITES.BLOCK_SMALL_5:
+                case DUNGEON_SPRITES.GATE_5:
                     rectX = 12;
                     break;
                 case DUNGEON_SPRITES.BLOCK_4:
@@ -321,7 +324,7 @@ namespace CS3005_Game.Util
             if(rectX == -1 || rectY == -1)
                 throw new Exception("Sprite location has not been specified!");
 
-            return new Rectangle(rectX, rectY, rectWidth, rectHeight);
+            return new Rectangle(rectX * SpriteWidth, rectY * SpriteHeight, rectWidth, rectHeight);
         }
 
         /// <summary>
@@ -329,12 +332,16 @@ namespace CS3005_Game.Util
         /// Run this during the LoadContent() method!
         /// </summary>
         /// <param name="graphics"></param>
-        public static void init(GraphicsDevice graphics)
+        public static void init()
         {
+            Console.WriteLine("Initializing Textures!");
+
             //Goes through the spite names and creates a Texture2D for each.
             //Then adds them to the Dictionary to reference later.
             foreach(DUNGEON_SPRITES s in Enum.GetValues(typeof(DUNGEON_SPRITES)))
             {
+                if (s == DUNGEON_SPRITES.NULL)
+                    continue;
                 Sprites.Add(s, getTextureRect(s));
             }
 
@@ -342,9 +349,9 @@ namespace CS3005_Game.Util
             PRESET_BG = new DUNGEON_SPRITES[Reference.SCREEN_GRID_WIDTH, Reference.SCREEN_GRID_HEIGHT];
             int BGwidth = PRESET_BG.GetLength(0);
             int BGheight = PRESET_BG.GetLength(1);
-            for (int i = 0; i < BGwidth; ++i )
+            for (int j = 0; j < BGheight; ++j)
             {
-                for (int j = 0; j < BGheight; ++j)
+                for (int i = 0; i < BGwidth; ++i)
                 {
                     //Outer edge -> PLAIN_BLACK
                     if (i == 0 || i == BGwidth - 1 || j == 0 || j == BGheight - 1)
@@ -362,20 +369,21 @@ namespace CS3005_Game.Util
                     else if (i == BGwidth - 2 && j == BGheight - 2)
                         PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_BR;
                     //Wall -> Top Side
-                    else if (i > 2 && i < BGwidth - 2 && j == 2)
+                    else if (i > 1 && i < BGwidth - 2 && j == 1)
                         PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_T;
                     //Wall -> Left Side
-                    else if (i == 2 && j > 2 && j < BGheight - 2)
+                    else if (i == 1 && j > 2 && j < BGheight - 2)
                         PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_L;
                     //Wall -> Right Side
                     else if (i == BGwidth - 2 && j > 2 && j < BGheight - 2)
                         PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_R;
                     //Wall -> Bottom Side
-                    else if (i > 2 && i < BGwidth - 2 && j == BGheight - 2)
+                    else if (i > 1 && i < BGwidth - 2 && j == BGheight - 2)
                         PRESET_BG[i, j] = DUNGEON_SPRITES.WALL_B;
                     //Inner -> PLAIN_GREEN
                     else
-                        PRESET_BG[i, j] = DUNGEON_SPRITES.PLAIN_GREEN;
+                        PRESET_BG[i, j] = DUNGEON_SPRITES.NULL;
+                    Console.WriteLine("PRESET_BG [" + i + "," + j + "] -> " + PRESET_BG[i,j].ToString());
                 }
             }
         }

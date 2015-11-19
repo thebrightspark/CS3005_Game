@@ -11,8 +11,12 @@ namespace CS3005_Game.Environment.Rooms
         public RoomLobby() : base(Names.Rooms.LOBBY)
         {
             //TODO: Create room!
+            addNewTextObject(GameData.LobbyTitle);
         }
 
+        public override void update()
+        {
 
+        }
     }
 }

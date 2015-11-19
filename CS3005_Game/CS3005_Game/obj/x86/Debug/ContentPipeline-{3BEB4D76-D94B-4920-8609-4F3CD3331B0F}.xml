@@ -10,6 +10,33 @@
       <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\TestCharacter.xnb</Output>
       <Time>2015-11-08T13:29:29.1314495+00:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\Unknown.png</Source>
+      <Name>Textures\Unknown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\Unknown.xnb</Output>
+      <Time>2015-11-08T15:14:52.2673773+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\dungeon_sheet.png</Source>
+      <Name>Textures\dungeon_sheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\dungeon_sheet.xnb</Output>
+      <Time>2015-11-08T17:23:21.3118188+00:00</Time>
+    </Item>
+    <Item>
+      <Source>FontMain.spritefont</Source>
+      <Name>FontMain</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\FontMain.xnb</Output>
+      <Time>2015-11-17T18:51:46.8503272+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3BEB4D76-D94B-4920-8609-4F3CD3331B0F}</ContentProjectGUID>

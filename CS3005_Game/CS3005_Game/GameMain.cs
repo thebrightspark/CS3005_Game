@@ -24,6 +24,7 @@ namespace CS3005_Game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            Window.Title = Names.Text.GAME_NAME;
         }
 
         /// <summary>
@@ -34,12 +35,19 @@ namespace CS3005_Game
         /// </summary>
         protected override void Initialize()
         {
+            Console.WriteLine("<< Initialize >>");
+
             //Add your initialization logic here
 
             graphics.PreferredBackBufferWidth = Reference.SCREEN_WIDTH;
             graphics.PreferredBackBufferHeight = Reference.SCREEN_HEIGHT;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
+
+            //Loads the spritesheet
+            GameData.SpriteSheet = Content.Load<Texture2D>(Reference.SPRITESHEET);
+            //Creates the fonts
+            GameData.FontMain = Content.Load<SpriteFont>("FontMain");
 
             GameInit.Init();
 
@@ -52,6 +60,8 @@ namespace CS3005_Game
         /// </summary>
         protected override void LoadContent()
         {
+            Console.WriteLine("<< Load Content >>");
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -66,6 +76,8 @@ namespace CS3005_Game
         /// </summary>
         protected override void UnloadContent()
         {
+            Console.WriteLine("<< Unload Content >>");
+
             //Unload any non ContentManager content here
 
             GameContent.Unload();
@@ -78,6 +90,8 @@ namespace CS3005_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            Console.WriteLine("<< Update >>");
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -95,11 +109,13 @@ namespace CS3005_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            Console.WriteLine("<< Draw >>");
+
+            GraphicsDevice.Clear(Reference.GREEN);
 
             //Add your drawing code here
 
-            GameUpdate.Draw(gameTime, spriteBatch);
+            GameDraw.Draw(gameTime, spriteBatch);
 
             base.Draw(gameTime);
         }

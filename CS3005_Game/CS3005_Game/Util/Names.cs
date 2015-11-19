@@ -14,5 +14,11 @@ namespace CS3005_Game.Util
         {
             public static readonly String LOBBY = "Lobby";
         }
+
+        public static class Text
+        {
+            public static readonly String GAME_NAME = "Dungeon Solvers";
+            public static readonly String LOBBY_TITLE = GAME_NAME;
+        }
     }
 }
