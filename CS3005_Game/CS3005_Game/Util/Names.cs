@@ -12,13 +12,21 @@ namespace CS3005_Game.Util
     {
         public static class Rooms
         {
+            public static readonly String ROOM_TITLE = "Level: ";
             public static readonly String LOBBY = "Lobby";
+            public static readonly String LEVEL_1 = "One";
+        }
+
+        public static class Objects
+        {
+            public static readonly String GATE_EXIT = "Exit";
         }
 
         public static class Text
         {
             public static readonly String GAME_NAME = "Dungeon Solvers";
             public static readonly String LOBBY_TITLE = GAME_NAME;
+            public static readonly String FPS = "FPS: ";
         }
     }
 }

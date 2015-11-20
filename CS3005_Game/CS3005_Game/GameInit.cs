@@ -19,9 +19,6 @@ namespace CS3005_Game
             //Initialize textures
             TextureManager.init();
 
-            //Initialize text
-            GameData.LobbyTitle = new ScreenText(GameData.FontMain, Names.Text.LOBBY_TITLE, Reference.WHITE);
-
             //Rooms
             GameData.addRoom(new RoomLobby());
 

@@ -26,7 +26,16 @@ namespace CS3005_Game
         /// Copperplate Gothic Bold.
         /// </summary>
         public static SpriteFont FontMain;
-        public static ScreenText LobbyTitle;
+        /// <summary>
+        /// Used for game info around the edge of the screen.
+        /// Copperplate Gothic Light.
+        /// </summary>
+        public static SpriteFont FontStats;
+        /// <summary>
+        /// Used for in-game text.
+        /// Century Gothic (Bold)
+        /// </summary>
+        public static SpriteFont FontInfo;
 
         /// <summary>
         /// The currently loaded Room.

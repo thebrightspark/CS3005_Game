@@ -28,18 +28,18 @@ namespace CS3005_Game.Util
         /// </summary>
         /// <param name="spriteSheet"></param>
         /// <param name="sprite"></param>
-        public SpriteAnimated2D(Texture2D spriteSheet, TextureManager.DUNGEON_SPRITES[] enumSprites, int frames, int screenXPos, int screenYPos)
+        public SpriteAnimated2D(Texture2D spriteSheet, TextureManager.DUNGEON_SPRITES[] enumSprites, int screenXPos, int screenYPos)
         {
             texture = spriteSheet;
-            position = new Vector2(screenXPos * Reference.SCREEN_SCALE, screenYPos * Reference.SCREEN_SCALE);
+            position = new Vector2(screenXPos, screenYPos);
             sprites = enumSprites;
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);
-            scale = new Vector2(Reference.SCREEN_SCALE);
+            scale = new Vector2(Config.screenScale);
             effect = SpriteEffects.None;
             layerDepth = 0f;
-            totalFrames = frames-1;
+            totalFrames = enumSprites.Length-1;
             curFrame = 0;
             spriteRect = TextureManager.getSpriteRect(sprites[0]);
         }
@@ -71,6 +71,14 @@ namespace CS3005_Game.Util
             return spriteRect.Height;
         }
 
+        public void nextFrame()
+        {
+            curFrame++;
+            if (curFrame > totalFrames)
+                curFrame = 0;
+            spriteRect = TextureManager.getSpriteRect(sprites[curFrame]);
+        }
+
         /// <summary>
         /// Draws the sprite on the screen with it's own defined variables.
         /// </summary>
@@ -87,10 +95,6 @@ namespace CS3005_Game.Util
                 scale,
                 effect,
                 layerDepth);
-            curFrame++;
-            if (curFrame > totalFrames)
-                curFrame = 0;
-            spriteRect = TextureManager.getSpriteRect(sprites[curFrame]);
         }
     }
 }

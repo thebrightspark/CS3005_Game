@@ -9,7 +9,15 @@ namespace CS3005_Game.Environment.RoomObjects
 {
     class RoomObjectGate : RoomObjectBase
     {
-        public RoomObjectGate(String name, int xPos, int yPos) : base(name, TextureManager.GateSprites, 0, 0)
+        /// <summary>
+        /// Automatically makes the gate the exit - positioning it at the top center of the Room.
+        /// </summary>
+        public RoomObjectGate() : base(Names.Objects.GATE_EXIT, TextureManager.GateSprites, true, 7, 1)
+        {
+
+        }
+
+        public RoomObjectGate(String name, int xPos, int yPos) : base(name, TextureManager.GateSprites, false, xPos, yPos)
         {
 
         }

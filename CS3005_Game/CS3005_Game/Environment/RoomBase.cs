@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using CS3005_Game.Util;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace CS3005_Game.Environment
 {
@@ -31,7 +33,23 @@ namespace CS3005_Game.Environment
         /// This is called by the GameUpdate class when this Room is currently loaded.
         /// All code to check and do things should be done within this method.
         /// </summary>
-        abstract public void update();
+        virtual public void update()
+        {
+
+        }
+
+        /// <summary>
+        /// This is called by the GameUpdate class when this Room is currently loaded.
+        /// By default, this class will tell it's Room Objects to change to their next sprite if they're animated.
+        /// </summary>
+        virtual public void updateSprites()
+        {
+            foreach (RoomObjectBase obj in RoomObjects)
+            {
+                if(obj.isAnimated())
+                    obj.nextSprite();
+            }
+        }
 
         /// <summary>
         /// Sets the background of the Room to an enum DUNGEON_SPRITES 2D array.
@@ -62,21 +80,40 @@ namespace CS3005_Game.Environment
         }
 
         /// <summary>
-        /// Adds a new object to the room.
+        /// Adds a new object to the Room.
         /// All objects are drawn ontop of the background.
         /// </summary>
-        /// <param name="obj">The room object</param>
+        /// <param name="obj">The Room object</param>
         protected void addNewRoomObject(RoomObjectBase obj)
         {
             RoomObjects.Add(obj);
         }
 
+        /// <summary>
+        /// Returns all of the Room's room objects.
+        /// </summary>
+        /// <returns></returns>
+        public List<RoomObjectBase> getRoomObjects()
+        {
+            return RoomObjects;
+        }
+
+        /// <summary>
+        /// Adds a new piece of text to the Room.
+        /// </summary>
+        /// <param name="font"></param>
+        /// <param name="text"></param>
+        /// <param name="textColour"></param>
         protected void addNewTextObject(ScreenText textObj)
         {
             RoomTextObjects.Add(textObj);
         }
 
-        protected List<ScreenText> getTextObjects()
+        /// <summary>
+        /// Returns all of the Room's text objects.
+        /// </summary>
+        /// <returns></returns>
+        public List<ScreenText> getTextObjects()
         {
             return RoomTextObjects;
         }

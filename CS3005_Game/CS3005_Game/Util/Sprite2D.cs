@@ -28,12 +28,12 @@ namespace CS3005_Game.Util
         public Sprite2D(Texture2D spriteSheet, TextureManager.DUNGEON_SPRITES sprite, int screenXPos, int screenYPos)
         {
             texture = spriteSheet;
-            position = new Vector2(screenXPos * Reference.SCREEN_SCALE, screenYPos * Reference.SCREEN_SCALE);
+            position = new Vector2(screenXPos, screenYPos);
             spriteRect = TextureManager.getSpriteRect(sprite);
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);
-            scale = new Vector2(Reference.SCREEN_SCALE);
+            scale = new Vector2(Config.screenScale);
             effect = SpriteEffects.None;
             layerDepth = 0f;
         }

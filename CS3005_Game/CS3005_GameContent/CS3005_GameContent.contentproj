@@ -51,8 +51,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FontMain.spritefont">
+    <Compile Include="Fonts\FontMain.spritefont">
       <Name>FontMain</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\FontStats.spritefont">
+      <Name>FontStats</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fonts\FontInfo.spritefont">
+      <Name>FontInfo</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>

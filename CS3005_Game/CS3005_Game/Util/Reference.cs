@@ -8,15 +8,14 @@ namespace CS3005_Game.Util
 {
     class Reference
     {
-        public static readonly float SCREEN_SCALE = 2.5f;
         /// <summary>
         /// How many pixels each grid square is by width and height.
         /// </summary>
-        public static readonly int PIXELS_PER_GRID_SQUARE = (int) (16 * SCREEN_SCALE);
+        public static readonly int PIXELS_PER_GRID_SQUARE = (int) (16 * Config.screenScale);
         /// <summary>
         /// How many grid squares wide the Rooms will be.
         /// </summary>
-        public static readonly int SCREEN_GRID_WIDTH = 16;
+        public static readonly int SCREEN_GRID_WIDTH = 17;
         /// <summary>
         /// How many grid squares high the Rooms will be.
         /// </summary>
@@ -26,6 +25,7 @@ namespace CS3005_Game.Util
         public static readonly int SCREEN_HEIGHT = PIXELS_PER_GRID_SQUARE * SCREEN_GRID_HEIGHT;
 
         public static readonly String PATH_TEXTURES = "Textures/";
+        public static readonly String PATH_FONTS = "Fonts/";
         public static readonly String SPRITESHEET = PATH_TEXTURES + "dungeon_sheet";
 
         public static readonly Color WHITE = Color.White;

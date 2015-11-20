@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using CS3005_Game.Util;
 
 namespace CS3005_Game
 {
@@ -12,10 +13,29 @@ namespace CS3005_Game
     /// </summary>
     class GameUpdate
     {
+        private static int updatesMillis = (int)((1 / (float)Config.updatesPerSecond) * 1000);
+        private static short updateCount = 0;
+        private static int thisMillis = 0;
+
         public static void Update(GameTime gameTime)
         {
+            thisMillis = gameTime.TotalGameTime.Milliseconds;
+
+            Console.WriteLine("updateCount: " + updateCount + "   this: " + thisMillis);
+
             //Runs the update of the current Room
             GameData.getCurrentRoom().update();
+
+            //This code runs every set interval -> 1/Config.updatesPerSecond
+            if (thisMillis >= (updateCount * updatesMillis) && thisMillis < ((updateCount + 1) * updatesMillis))
+            {
+                GameData.getCurrentRoom().updateSprites();
+
+                //TODO: This isn't adding!
+                updateCount++;
+                if (updateCount >= Config.updatesPerSecond)
+                    updateCount = 0;
+            }
         }
     }
 }

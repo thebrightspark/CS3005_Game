@@ -18,7 +18,20 @@ namespace CS3005_Game
         /// Local Room name for this class to know when the Room has been changed
         /// </summary>
         private static String roomName = null;
+        /// <summary>
+        /// Local copy of the Room background sprites to draw
+        /// </summary>
         private static Sprite2D[,] roomBgSprites;
+        /// <summary>
+        /// Local copy of the Room objects to draw
+        /// </summary>
+        private static RoomObjectBase[] roomObjects;
+        /// <summary>
+        /// Local copy of the Room text objects to draw
+        /// </summary>
+        private static ScreenText[] roomTextObjects;
+
+        private static ScreenText fpsText = new ScreenText(GameData.FontMain, Names.Text.FPS + "-1", Color.HotPink, 5, 50);
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -36,13 +49,13 @@ namespace CS3005_Game
 
                 //Populate the Sprite2D array
                 TextureManager.DUNGEON_SPRITES[,] curRoomTexture = curRoom.getBackgroundTexture();
-                int arrayWidth = curRoomTexture.GetLength(1);
-                int arrayHeight = curRoomTexture.GetLength(0);
+                int arrayWidth = curRoomTexture.GetLength(0);
+                int arrayHeight = curRoomTexture.GetLength(1);
                 for (int y = 0; y < arrayHeight; y++)
                 {
                     for (int x = 0; x < arrayWidth; x++)
                     {
-                        Sprite2D sprite = new Sprite2D(GameData.SpriteSheet, curRoomTexture[x,y], x * Reference.SCREEN_GRID_WIDTH, y * Reference.SCREEN_GRID_HEIGHT);
+                        Sprite2D sprite = new Sprite2D(GameData.SpriteSheet, curRoomTexture[x, y], x * Reference.PIXELS_PER_GRID_SQUARE, y * Reference.PIXELS_PER_GRID_SQUARE);
                         roomBgSprites[x, y] = sprite;
 
                         int spriteWidth = sprite.getSpriteWidth() / Reference.PIXELS_PER_GRID_SQUARE;
@@ -62,8 +75,17 @@ namespace CS3005_Game
                 }
             }
 
-            //Draw the text
-            GameData.LobbyTitle.DrawCentered(spriteBatch, 10);
+            //Draw the Room Objects
+            foreach (RoomObjectBase obj in curRoom.getRoomObjects())
+            {
+                obj.Draw(spriteBatch);
+            }
+
+            //Draw the Text Objects
+            foreach (ScreenText obj in curRoom.getTextObjects())
+            {
+                obj.Draw(spriteBatch);
+            }
 
             spriteBatch.End();
         }

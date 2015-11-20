@@ -90,6 +90,7 @@ namespace CS3005_Game.Util
         public static DUNGEON_SPRITES[,] PRESET_BG;
 
         public static DUNGEON_SPRITES[] GateSprites = {DUNGEON_SPRITES.GATE_1, DUNGEON_SPRITES.GATE_2, DUNGEON_SPRITES.GATE_3, DUNGEON_SPRITES.GATE_4, DUNGEON_SPRITES.GATE_5};
+        //public static DUNGEON_SPRITES[] TotemSprites = {DUNGEON_SPRITES.TOTEM_1, DUNGEON_SPRITES.TOTEM_2, DUNGEON_SPRITES.TOTEM_3, DUNGEON_SPRITES.TOTEM_4, DUNGEON_SPRITES.TOTEM_5, DUNGEON_SPRITES.TOTEM_6, DUNGEON_SPRITES.TOTEM_7};
 
         /// <summary>
         /// Creates and returns a Rectangle for the exact position of a sprite on the spritesheet.

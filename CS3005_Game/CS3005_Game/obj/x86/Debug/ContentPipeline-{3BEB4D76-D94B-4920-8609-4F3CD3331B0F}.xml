@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\TestCharacter.xnb</Output>
-      <Time>2015-11-08T13:29:29.1314495+00:00</Time>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\TestCharacter.xnb</Output>
+      <Time>2015-11-08T13:29:30+00:00</Time>
     </Item>
     <Item>
       <Source>Textures\Unknown.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\Unknown.xnb</Output>
-      <Time>2015-11-08T15:14:52.2673773+00:00</Time>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\Unknown.xnb</Output>
+      <Time>2015-11-08T15:14:54+00:00</Time>
     </Item>
     <Item>
       <Source>Textures\dungeon_sheet.png</Source>
@@ -25,17 +25,35 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\dungeon_sheet.xnb</Output>
-      <Time>2015-11-08T17:23:21.3118188+00:00</Time>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\dungeon_sheet.xnb</Output>
+      <Time>2015-11-08T17:23:22+00:00</Time>
     </Item>
     <Item>
-      <Source>FontMain.spritefont</Source>
-      <Name>FontMain</Name>
+      <Source>Fonts\FontMain.spritefont</Source>
+      <Name>Fonts\FontMain</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\FontMain.xnb</Output>
-      <Time>2015-11-17T18:51:46.8503272+00:00</Time>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontMain.xnb</Output>
+      <Time>2015-11-17T18:51:48+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\FontStats.spritefont</Source>
+      <Name>Fonts\FontStats</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontStats.xnb</Output>
+      <Time>2015-11-20T12:33:24+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\FontInfo.spritefont</Source>
+      <Name>Fonts\FontInfo</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfo.xnb</Output>
+      <Time>2015-11-20T12:47:18+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -44,10 +62,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_GameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_GameContent\</RootDirectory>
+      <LoggerRootDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\</LoggerRootDirectory>
+      <IntermediateDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

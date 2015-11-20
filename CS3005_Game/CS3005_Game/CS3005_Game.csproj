@@ -75,8 +75,10 @@
     <Compile Include="Entity\EntityBase.cs" />
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Environment\RoomBase.cs" />
+    <Compile Include="Environment\RoomLevelBase.cs" />
     <Compile Include="Environment\RoomObjectBase.cs" />
     <Compile Include="Environment\RoomObjects\RoomObjectGate.cs" />
+    <Compile Include="Environment\Rooms\RoomLevel1.cs" />
     <Compile Include="Environment\Rooms\RoomLobby.cs" />
     <Compile Include="GameContent.cs" />
     <Compile Include="GameData.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="GameUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Util\Config.cs" />
     <Compile Include="Util\Names.cs" />
     <Compile Include="Util\Reference.cs" />
     <Compile Include="Util\ScreenText.cs" />

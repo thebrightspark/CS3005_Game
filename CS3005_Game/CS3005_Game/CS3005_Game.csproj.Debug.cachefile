@@ -1,4 +1,6 @@
 Content\Textures\TestCharacter.xnb
 Content\Textures\Unknown.xnb
 Content\Textures\dungeon_sheet.xnb
-Content\FontMain.xnb
+Content\Fonts\FontMain.xnb
+Content\Fonts\FontStats.xnb
+Content\Fonts\FontInfo.xnb

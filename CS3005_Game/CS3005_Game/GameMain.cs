@@ -47,7 +47,9 @@ namespace CS3005_Game
             //Loads the spritesheet
             GameData.SpriteSheet = Content.Load<Texture2D>(Reference.SPRITESHEET);
             //Creates the fonts
-            GameData.FontMain = Content.Load<SpriteFont>("FontMain");
+            GameData.FontMain = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontMain");
+            GameData.FontStats = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontStats");
+            GameData.FontInfo = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontInfo");
 
             GameInit.Init();
 
