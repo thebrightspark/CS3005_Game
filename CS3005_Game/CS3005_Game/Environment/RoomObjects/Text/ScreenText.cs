@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using CS3005_Game.Util;
 
-namespace CS3005_Game.Util
+namespace CS3005_Game.Environment.RoomObjects.Text
 {
     class ScreenText
     {
+
+        private String Name;
         private SpriteFont Font;
         private String Text;
         private Color Colour;
-        private Vector2 Size;
-        private Vector2 Position;
+        protected Vector2 Size;
+        protected Vector2 Position;
 
-        private void init(SpriteFont font, String text, Color colour)
+        private void init(String name, SpriteFont font, String text, Color colour)
         {
+            Name = name;
             Font = font;
             Text = text;
             Colour = colour;
@@ -30,9 +34,9 @@ namespace CS3005_Game.Util
         /// <param name="text"></param>
         /// <param name="colour"></param>
         /// <param name="yPos"></param>
-        public ScreenText(SpriteFont font, String text, Color colour, int yPos)
+        public ScreenText(String name, SpriteFont font, String text, Color colour, int yPos)
         {
-            init(font, text, colour);
+            init(name, font, text, colour);
             Position = new Vector2((Reference.SCREEN_WIDTH / 2) - (Size.X / 2), yPos);
         }
 
@@ -44,10 +48,15 @@ namespace CS3005_Game.Util
         /// <param name="colour"></param>
         /// <param name="xPos"></param>
         /// <param name="yPos"></param>
-        public ScreenText(SpriteFont font, String text, Color colour, int xPos, int yPos)
+        public ScreenText(String name, SpriteFont font, String text, Color colour, int xPos, int yPos)
         {
-            init(font, text, colour);
+            init(name, font, text, colour);
             Position = new Vector2(xPos, yPos);
+        }
+
+        public String getName()
+        {
+            return Name;
         }
 
         public void setText(String text)
@@ -66,7 +75,7 @@ namespace CS3005_Game.Util
             return Size.Y;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        virtual public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(
                 Font,

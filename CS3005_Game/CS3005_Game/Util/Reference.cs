@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace CS3005_Game.Util
 {
@@ -30,5 +31,6 @@ namespace CS3005_Game.Util
 
         public static readonly Color WHITE = Color.White;
         public static readonly Color GREEN = new Color(145,176,154);
+        public static readonly Color BG_GREY = new Color(64, 64, 64);
     }
 }

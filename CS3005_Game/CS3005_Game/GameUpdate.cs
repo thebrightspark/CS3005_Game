@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CS3005_Game.Util;
+using Microsoft.Xna.Framework.Input;
 
 namespace CS3005_Game
 {
@@ -21,7 +22,10 @@ namespace CS3005_Game
         {
             thisMillis = gameTime.TotalGameTime.Milliseconds;
 
-            Console.WriteLine("updateCount: " + updateCount + "   this: " + thisMillis);
+            //Console.WriteLine("updateCount: " + updateCount + "   this: " + thisMillis);
+
+            //Updates the Keyboard State
+            GameData.keyboard = Keyboard.GetState();
 
             //Runs the update of the current Room
             GameData.getCurrentRoom().update();
@@ -31,7 +35,7 @@ namespace CS3005_Game
             {
                 GameData.getCurrentRoom().updateSprites();
 
-                //TODO: This isn't adding!
+                //Add to the update counter
                 updateCount++;
                 if (updateCount >= Config.updatesPerSecond)
                     updateCount = 0;

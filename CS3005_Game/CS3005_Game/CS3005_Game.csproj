@@ -78,6 +78,7 @@
     <Compile Include="Environment\RoomLevelBase.cs" />
     <Compile Include="Environment\RoomObjectBase.cs" />
     <Compile Include="Environment\RoomObjects\RoomObjectGate.cs" />
+    <Compile Include="Environment\RoomObjects\Text\ScreenTextWithBG.cs" />
     <Compile Include="Environment\Rooms\RoomLevel1.cs" />
     <Compile Include="Environment\Rooms\RoomLobby.cs" />
     <Compile Include="GameContent.cs" />
@@ -91,7 +92,7 @@
     <Compile Include="Util\Config.cs" />
     <Compile Include="Util\Names.cs" />
     <Compile Include="Util\Reference.cs" />
-    <Compile Include="Util\ScreenText.cs" />
+    <Compile Include="Environment\RoomObjects\Text\ScreenText.cs" />
     <Compile Include="Util\Sprite2D.cs" />
     <Compile Include="Util\SpriteAnimated2D.cs" />
     <Compile Include="Util\TextureManager.cs" />

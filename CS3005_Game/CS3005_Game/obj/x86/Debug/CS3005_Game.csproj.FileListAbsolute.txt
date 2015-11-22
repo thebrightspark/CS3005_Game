@@ -30,3 +30,15 @@ H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS30
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontMain.xnb
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontStats.xnb
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfo.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.exe
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.pdb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.csprojResolveAssemblyReference.cache
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\TestCharacter.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\Unknown.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\dungeon_sheet.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontMain.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontStats.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfo.xnb
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\CS3005_Game.exe
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\CS3005_Game.pdb

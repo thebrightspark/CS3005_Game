@@ -1,3 +1,4 @@
 C:\Users\brigh\Desktop\Projects\Visual Studio\CS3005_Game\CS3005_Game\CS3005_GameContent\obj\x86\Debug\CS3005_GameContent.contentprojResolveAssemblyReference.cache
 \\acfs4\cs13\cs13map\Desktop\CS_Year_3\CS3005\CS3005_Game\CS3005_Game\CS3005_GameContent\obj\x86\Debug\CS3005_GameContent.contentprojResolveAssemblyReference.cache
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_GameContent\obj\x86\Debug\CS3005_GameContent.contentprojResolveAssemblyReference.cache
+E:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_GameContent\obj\x86\Debug\CS3005_GameContent.contentprojResolveAssemblyReference.cache

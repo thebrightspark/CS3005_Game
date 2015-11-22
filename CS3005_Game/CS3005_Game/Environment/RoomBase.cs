@@ -6,6 +6,7 @@ using System.Collections;
 using CS3005_Game.Util;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using CS3005_Game.Environment.RoomObjects.Text;
 
 namespace CS3005_Game.Environment
 {
@@ -14,14 +15,17 @@ namespace CS3005_Game.Environment
     /// </summary>
     abstract class RoomBase
     {
+        private static int iNull = 0;
         //Room name
         private String Name;
         //Background texture (usually the PRESET_BG with black, walls and green)
         private TextureManager.DUNGEON_SPRITES[,] TextureBG;
         //List of all the objects in the room
-        private List<RoomObjectBase> RoomObjects = new List<RoomObjectBase>();
+        protected Dictionary<String, RoomObjectBase> RoomObjects = new Dictionary<String, RoomObjectBase>();
+        //protected List<RoomObjectBase> RoomObjects = new List<RoomObjectBase>();
         //List of all the text objects in the room
-        private List<ScreenText> RoomTextObjects = new List<ScreenText>();
+        protected Dictionary<String, ScreenText> RoomTextObjects = new Dictionary<String, ScreenText>();
+        //protected List<ScreenText> RoomTextObjects = new List<ScreenText>();
 
         public RoomBase(String name)
         {
@@ -33,10 +37,7 @@ namespace CS3005_Game.Environment
         /// This is called by the GameUpdate class when this Room is currently loaded.
         /// All code to check and do things should be done within this method.
         /// </summary>
-        virtual public void update()
-        {
-
-        }
+        virtual public void update() { }
 
         /// <summary>
         /// This is called by the GameUpdate class when this Room is currently loaded.
@@ -44,7 +45,7 @@ namespace CS3005_Game.Environment
         /// </summary>
         virtual public void updateSprites()
         {
-            foreach (RoomObjectBase obj in RoomObjects)
+            foreach (RoomObjectBase obj in RoomObjects.Values)
             {
                 if(obj.isAnimated())
                     obj.nextSprite();
@@ -86,14 +87,30 @@ namespace CS3005_Game.Environment
         /// <param name="obj">The Room object</param>
         protected void addNewRoomObject(RoomObjectBase obj)
         {
-            RoomObjects.Add(obj);
+            if (obj.getName() == null)
+            {
+                RoomObjects.Add(iNull.ToString(), obj);
+                iNull++;
+            }
+            else
+                RoomObjects.Add(obj.getName(), obj);
+        }
+
+        /// <summary>
+        /// Returns the Room objects with the given name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public RoomObjectBase getRoomObject(String name)
+        {
+            return RoomObjects[name];
         }
 
         /// <summary>
         /// Returns all of the Room's room objects.
         /// </summary>
         /// <returns></returns>
-        public List<RoomObjectBase> getRoomObjects()
+        public Dictionary<String, RoomObjectBase> getRoomObjects()
         {
             return RoomObjects;
         }
@@ -101,41 +118,35 @@ namespace CS3005_Game.Environment
         /// <summary>
         /// Adds a new piece of text to the Room.
         /// </summary>
-        /// <param name="font"></param>
-        /// <param name="text"></param>
-        /// <param name="textColour"></param>
+        /// <param name="textObj"></param>
         protected void addNewTextObject(ScreenText textObj)
         {
-            RoomTextObjects.Add(textObj);
+            if (textObj.getName() == null)
+            {
+                RoomTextObjects.Add(iNull.ToString(), textObj);
+                iNull++;
+            }
+            else
+                RoomTextObjects.Add(textObj.getName(), textObj);
+        }
+
+        /// <summary>
+        /// Returns the Room text object with the given name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public ScreenText getTextObject(String name)
+        {
+            return RoomTextObjects[name];
         }
 
         /// <summary>
         /// Returns all of the Room's text objects.
         /// </summary>
         /// <returns></returns>
-        public List<ScreenText> getTextObjects()
+        public Dictionary<String, ScreenText> getTextObjects()
         {
             return RoomTextObjects;
-        }
-
-        /// <summary>
-        /// Removes the named object from the objects in the room if it exists.
-        /// Returns whether it was successful or not.
-        /// </summary>
-        /// <param name="name">Name of the object</param>
-        /// <returns>Success</returns>
-        protected bool removeRoomObject(String name)
-        {
-            for(int i = 0; i < RoomObjects.Count; i++)
-            {
-                RoomObjectBase obj = RoomObjects[i];
-                if(obj.getName().Equals(name))
-                {
-                    RoomObjects.RemoveAt(i);
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }

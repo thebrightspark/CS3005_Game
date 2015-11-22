@@ -25,6 +25,7 @@ namespace CS3005_Game
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             Window.Title = Names.Text.GAME_NAME;
+            IsMouseVisible = true;
         }
 
         /// <summary>
@@ -39,19 +40,7 @@ namespace CS3005_Game
 
             //Add your initialization logic here
 
-            graphics.PreferredBackBufferWidth = Reference.SCREEN_WIDTH;
-            graphics.PreferredBackBufferHeight = Reference.SCREEN_HEIGHT;
-            graphics.IsFullScreen = false;
-            graphics.ApplyChanges();
-
-            //Loads the spritesheet
-            GameData.SpriteSheet = Content.Load<Texture2D>(Reference.SPRITESHEET);
-            //Creates the fonts
-            GameData.FontMain = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontMain");
-            GameData.FontStats = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontStats");
-            GameData.FontInfo = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontInfo");
-
-            GameInit.Init();
+            GameInit.Init(Content, graphics);
 
             base.Initialize();
         }
@@ -92,7 +81,7 @@ namespace CS3005_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            Console.WriteLine("<< Update >>");
+            //Console.WriteLine("<< Update >>");
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -111,7 +100,7 @@ namespace CS3005_Game
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            Console.WriteLine("<< Draw >>");
+            //Console.WriteLine("<< Draw >>");
 
             GraphicsDevice.Clear(Reference.GREEN);
 

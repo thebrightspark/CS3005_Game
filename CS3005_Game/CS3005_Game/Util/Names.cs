@@ -27,6 +27,11 @@ namespace CS3005_Game.Util
             public static readonly String GAME_NAME = "Dungeon Solvers";
             public static readonly String LOBBY_TITLE = GAME_NAME;
             public static readonly String FPS = "FPS: ";
+
+            public static readonly String MENU_PLAY = "Play!";
+            public static readonly String MENU_CONTINUE = "Continue";
+            public static readonly String MENU_LEVEL_SELECT = "Level Selection";
+            public static readonly String MENU_BACK = "<- Back <-";
         }
     }
 }

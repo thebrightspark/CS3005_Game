@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using CS3005_Game.Environment;
 using CS3005_Game.Util;
+using CS3005_Game.Environment.RoomObjects.Text;
 
 namespace CS3005_Game
 {
@@ -31,7 +32,7 @@ namespace CS3005_Game
         /// </summary>
         private static ScreenText[] roomTextObjects;
 
-        private static ScreenText fpsText = new ScreenText(GameData.FontMain, Names.Text.FPS + "-1", Color.HotPink, 5, 50);
+        private static ScreenText fpsText = new ScreenText(null, GameData.FontMain, Names.Text.FPS + "-1", Color.HotPink, 5, 50);
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -76,13 +77,13 @@ namespace CS3005_Game
             }
 
             //Draw the Room Objects
-            foreach (RoomObjectBase obj in curRoom.getRoomObjects())
+            foreach (RoomObjectBase obj in curRoom.getRoomObjects().Values)
             {
                 obj.Draw(spriteBatch);
             }
 
             //Draw the Text Objects
-            foreach (ScreenText obj in curRoom.getTextObjects())
+            foreach (ScreenText obj in curRoom.getTextObjects().Values)
             {
                 obj.Draw(spriteBatch);
             }

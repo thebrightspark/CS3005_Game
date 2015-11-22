@@ -384,7 +384,7 @@ namespace CS3005_Game.Util
                     //Inner -> PLAIN_GREEN
                     else
                         PRESET_BG[i, j] = DUNGEON_SPRITES.NULL;
-                    Console.WriteLine("PRESET_BG [" + i + "," + j + "] -> " + PRESET_BG[i,j].ToString());
+                    //Console.WriteLine("PRESET_BG [" + i + "," + j + "] -> " + PRESET_BG[i,j].ToString());
                 }
             }
         }
