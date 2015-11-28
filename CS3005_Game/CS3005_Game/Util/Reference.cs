@@ -28,9 +28,13 @@ namespace CS3005_Game.Util
         public static readonly String PATH_TEXTURES = "Textures/";
         public static readonly String PATH_FONTS = "Fonts/";
         public static readonly String SPRITESHEET = PATH_TEXTURES + "dungeon_sheet";
+        public static readonly String SPRITE_PLAYER = PATH_TEXTURES + "TestCharacter";
 
         public static readonly Color WHITE = Color.White;
         public static readonly Color GREEN = new Color(145,176,154);
         public static readonly Color BG_GREY = new Color(64, 64, 64);
+
+        public static readonly int PLAYER_START_X = ((int)Math.Floor(((double)SCREEN_GRID_WIDTH-1)/2)) * PIXELS_PER_GRID_SQUARE;
+        public static readonly int PLAYER_START_Y = (SCREEN_GRID_HEIGHT - 2) * PIXELS_PER_GRID_SQUARE;
     }
 }

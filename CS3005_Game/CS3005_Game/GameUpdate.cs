@@ -34,6 +34,7 @@ namespace CS3005_Game
             if (thisMillis >= (updateCount * updatesMillis) && thisMillis < ((updateCount + 1) * updatesMillis))
             {
                 GameData.getCurrentRoom().updateSprites();
+                GameData.player.Update();
 
                 //Add to the update counter
                 updateCount++;

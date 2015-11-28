@@ -17,6 +17,9 @@ namespace CS3005_Game.Environment
             addNewTextObject(new ScreenText(null, GameData.FontStats, Names.Rooms.ROOM_TITLE + roomName, Reference.WHITE, 5, 5));
 
             addNewRoomObject(gateExit);
+
+            //Change the player location to the start
+            GameData.player.setCoords(Reference.PLAYER_START_X, Reference.PLAYER_START_Y);
         }
 
         public override void update()

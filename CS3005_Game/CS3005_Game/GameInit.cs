@@ -7,6 +7,7 @@ using CS3005_Game.Util;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using CS3005_Game.Environment.Rooms.Levels;
 
 namespace CS3005_Game
 {
@@ -22,8 +23,9 @@ namespace CS3005_Game
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
 
-            //Loads the spritesheet
+            //Loads the spritesheets
             GameData.SpriteSheet = Content.Load<Texture2D>(Reference.SPRITESHEET);
+            GameData.PlayerSpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_PLAYER);
             //Creates the fonts
             GameData.FontMain = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontMain");
             GameData.FontStats = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontStats");
@@ -39,6 +41,8 @@ namespace CS3005_Game
 
             //Rooms
             GameData.addRoom(new RoomLobby());
+            GameData.addRoom(new RoomLevelSelect());
+            GameData.addRoom(new RoomLevel1());
 
             //Set initial Room to the Lobby
             GameData.setCurrentRoom(Names.Rooms.LOBBY);

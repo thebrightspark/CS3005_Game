@@ -6,6 +6,7 @@ using CS3005_Game.Environment;
 using CS3005_Game.Util;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using CS3005_Game.Entity;
 
 namespace CS3005_Game
 {
@@ -20,9 +21,13 @@ namespace CS3005_Game
         private static Dictionary<String, RoomBase> Rooms = new Dictionary<String, RoomBase>();
         //public static List<RoomBase> Rooms = new List<RoomBase>();
         /// <summary>
-        /// The sprite sheet used to get textures from
+        /// The sprite sheet used to get textures from.
         /// </summary>
         public static Texture2D SpriteSheet;
+        /// <summary>
+        /// The sprite sheet used to get player textures from.
+        /// </summary>
+        public static Texture2D PlayerSpriteSheet;
         /// <summary>
         /// Plain texture to be used for single-coloured rectangles.
         /// </summary>
@@ -53,10 +58,18 @@ namespace CS3005_Game
         /// </summary>
         private static RoomBase CurrentRoom;
 
+
+        public static Player player = new Player();
+
         /// <summary>
         /// The keyboard state.
         /// </summary>
         public static KeyboardState keyboard = Keyboard.GetState();
+
+        /// <summary>
+        /// How many Rooms have been completed.
+        /// </summary>
+        public static int RoomsCleared = 0;
 
         public static void addRoom(RoomBase room)
         {
@@ -95,6 +108,30 @@ namespace CS3005_Game
         public static RoomBase getCurrentRoom()
         {
             return CurrentRoom;
+        }
+
+        /// <summary>
+        /// Returns the amount of registered Rooms.
+        /// </summary>
+        /// <returns></returns>
+        public static int getNumRooms()
+        {
+            return Rooms.Count;
+        }
+
+        /// <summary>
+        /// Counts and returns the amount of registered levels.
+        /// </summary>
+        /// <returns></returns>
+        public static int getNumLevels()
+        {
+            int numLevels = 0;
+            foreach(RoomBase r in Rooms.Values)
+            {
+                if (r is RoomLevelBase)
+                    numLevels++;
+            }
+            return numLevels;
         }
 
         /// <summary>

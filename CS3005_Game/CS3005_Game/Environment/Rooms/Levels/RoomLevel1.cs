@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using CS3005_Game.Util;
 
-namespace CS3005_Game.Environment.Rooms
+namespace CS3005_Game.Environment.Rooms.Levels
 {
     class RoomLevel1 : RoomLevelBase
     {

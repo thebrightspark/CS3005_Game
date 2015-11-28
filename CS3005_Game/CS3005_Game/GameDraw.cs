@@ -82,6 +82,9 @@ namespace CS3005_Game
                 obj.Draw(spriteBatch);
             }
 
+            //Draw the Player
+            GameData.player.Draw(spriteBatch);
+
             //Draw the Text Objects
             foreach (ScreenText obj in curRoom.getTextObjects().Values)
             {
