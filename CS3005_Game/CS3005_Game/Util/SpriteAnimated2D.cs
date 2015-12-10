@@ -36,12 +36,12 @@ namespace CS3005_Game.Util
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);
-            scale = new Vector2(Config.screenScale);
+            scale = new Vector2(Reference.screenScale);
             effect = SpriteEffects.None;
             layerDepth = 0f;
             totalFrames = enumSprites.Length-1;
             curFrame = 0;
-            spriteRect = TextureManager.getSpriteRect(sprites[0]);
+            spriteRect = TextureManager.getRoomSpriteRect(sprites[0]);
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace CS3005_Game.Util
         /// <param name="sprite">Sprite name</param>
         public void setSprite(TextureManager.DUNGEON_SPRITES sprite)
         {
-            spriteRect = TextureManager.getSpriteRect(sprite);
+            spriteRect = TextureManager.getRoomSpriteRect(sprite);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace CS3005_Game.Util
             curFrame++;
             if (curFrame > totalFrames)
                 curFrame = 0;
-            spriteRect = TextureManager.getSpriteRect(sprites[curFrame]);
+            spriteRect = TextureManager.getRoomSpriteRect(sprites[curFrame]);
         }
 
         /// <summary>

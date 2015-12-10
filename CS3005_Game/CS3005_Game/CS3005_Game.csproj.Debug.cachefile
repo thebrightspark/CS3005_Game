@@ -1,6 +1,9 @@
-Content\Textures\TestCharacter.xnb
-Content\Textures\Unknown.xnb
 Content\Textures\dungeon_sheet.xnb
+Content\Textures\players.xnb
 Content\Fonts\FontMain.xnb
 Content\Fonts\FontStats.xnb
 Content\Fonts\FontInfo.xnb
+Content\Textures\NumDisplay_1.xnb
+Content\Textures\NumDisplay_2.xnb
+Content\Textures\squareRed.xnb
+Content\Textures\squareYellow.xnb

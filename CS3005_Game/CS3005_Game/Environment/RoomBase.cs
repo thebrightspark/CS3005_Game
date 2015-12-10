@@ -37,13 +37,19 @@ namespace CS3005_Game.Environment
         /// This is called by the GameUpdate class when this Room is currently loaded.
         /// All code to check and do things should be done within this method.
         /// </summary>
-        virtual public void update() { }
+        virtual public void Update() { }
+
+        /// <summary>
+        /// This is called by the GameUpdate class when this Room is currently loaded.
+        /// This will be called (by default) 10 times per second.
+        /// </summary>
+        virtual public void UpdateLess() { }
 
         /// <summary>
         /// This is called by the GameUpdate class when this Room is currently loaded.
         /// By default, this class will tell it's Room Objects to change to their next sprite if they're animated.
         /// </summary>
-        virtual public void updateSprites()
+        virtual public void UpdateSprites()
         {
             foreach (RoomObjectBase obj in RoomObjects.Values)
             {

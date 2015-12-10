@@ -29,6 +29,22 @@ namespace CS3005_Game
         /// </summary>
         public static Texture2D PlayerSpriteSheet;
         /// <summary>
+        /// The sprite sheet used to get number textures from.
+        /// </summary>
+        public static Texture2D NumberSpriteSheet;
+        /// <summary>
+        /// The texture for the totem to show 1 digit.
+        /// </summary>
+        public static Texture2D Totem1SpriteSheet;
+        /// <summary>
+        /// The texture for the totem to show 2 digits.
+        /// </summary>
+        public static Texture2D Totem2SpriteSheet;
+
+        public static Texture2D DebugSquareYellow;
+        public static Texture2D DebugSquareRed;
+
+        /// <summary>
         /// Plain texture to be used for single-coloured rectangles.
         /// </summary>
         public static Texture2D TexturePlain;
@@ -59,7 +75,7 @@ namespace CS3005_Game
         private static RoomBase CurrentRoom;
 
 
-        public static Player player = new Player();
+        public static Player player;
 
         /// <summary>
         /// The keyboard state.

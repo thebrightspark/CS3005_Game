@@ -5,6 +5,7 @@ using System.Text;
 using CS3005_Game.Environment.RoomObjects.Text;
 using CS3005_Game.Util;
 using CS3005_Game.Environment.RoomObjects;
+using Microsoft.Xna.Framework;
 
 namespace CS3005_Game.Environment
 {
@@ -14,19 +15,26 @@ namespace CS3005_Game.Environment
 
         public RoomLevelBase(String roomName) : base(roomName)
         {
-            addNewTextObject(new ScreenText(null, GameData.FontStats, Names.Rooms.ROOM_TITLE + roomName, Reference.WHITE, 5, 5));
+            addNewTextObject(new ScreenText(null, GameData.FontStats, Names.Rooms.ROOM_TITLE + roomName, Color.Red, 5, 5));
+            addNewTextObject(new ScreenText("PlayerPos", GameData.FontStats, "", Color.Red, 5, 15));
+            addNewTextObject(new ScreenText("PlayerTilePos", GameData.FontStats, "", Color.Red, 200, 5));
 
             addNewRoomObject(gateExit);
-
-            //Change the player location to the start
-            GameData.player.setCoords(Reference.PLAYER_START_X, Reference.PLAYER_START_Y);
         }
 
-        public override void update()
+        public override void Update()
         {
-            gateExit.update();
+            getTextObject("PlayerPos").setText("Player -> X:" + GameData.player.xPos + "  Y:" + GameData.player.yPos + "\n              X2:" + (GameData.player.xPos + 16) + " Y2:" + (GameData.player.yPos + 16));
+            getTextObject("PlayerTilePos").setText("TilePos -> X:" + GameData.player.xTilePos + "  Y:" + GameData.player.yTilePos);
 
-            base.update();
+            base.Update();
+        }
+
+        public override void UpdateLess()
+        {
+            gateExit.Update();
+
+            base.UpdateLess();
         }
     }
 }

@@ -9,6 +9,15 @@ namespace CS3005_Game.Environment.RoomObjects
 {
     class RoomObjectGate : RoomObjectBase
     {
+        private enum GateState
+        {
+            CLOSING,
+            OPENING,
+            CLOSED,
+            OPEN
+        }
+        private GateState state = GateState.CLOSED;
+
         /// <summary>
         /// Automatically makes the gate the exit - positioning it at the top center of the Room.
         /// </summary>
@@ -27,7 +36,8 @@ namespace CS3005_Game.Environment.RoomObjects
         /// </summary>
         public void closeGate()
         {
-
+            if(state == GateState.OPEN || state == GateState.OPENING)
+                state = GateState.CLOSING;
         }
 
         /// <summary>
@@ -35,15 +45,40 @@ namespace CS3005_Game.Environment.RoomObjects
         /// </summary>
         public void openGate()
         {
-
+            if(state == GateState.CLOSED || state == GateState.CLOSING)
+                state = GateState.OPENING;
         }
 
-        /// <summary>
-        /// Call this every update of the Room.
-        /// </summary>
-        public void update()
+        public bool isOpen()
         {
+            return state == GateState.OPEN;
+        }
 
+        public override void Update()
+        {
+            Console.WriteLine("Gate state: " + state.ToString());
+            switch(state)
+            {
+                case GateState.OPENING:
+                    //Opening gate
+                    if (!isLastFrame())
+                        nextSprite();
+                    else
+                        //Gate is now open
+                        state = GateState.OPEN;
+                    break;
+                case GateState.CLOSING:
+                    //Closing gate
+                    if (!isFirstFrame())
+                        lastSprite();
+                    else
+                        //Gate is now closed
+                        state = GateState.CLOSED;
+                    break;
+                default:
+                    //Do nothing if closed or open.
+                    break;
+            }
         }
     }
 }

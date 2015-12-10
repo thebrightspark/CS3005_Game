@@ -14,8 +14,59 @@ namespace CS3005_Game.Util
         private static int SpriteWidth = 16;
         private static int SpriteHeight = 16;
 
+        private static int NumSpriteWidth = 8;
+        private static int NumSpriteHeight = 12;
+
         /// <summary>
-        /// An enum of all the sprite names.
+        /// An enum of all the number sprite names.
+        /// </summary>
+        public enum NUMBER_SPRITES
+        {
+            N1,
+            N2,
+            N3,
+            N4,
+            N5,
+            N6,
+            N7,
+            N8,
+            N9,
+            N0
+        }
+
+        /// <summary>
+        /// An enum of all the player sprite names.
+        /// </summary>
+        public enum PLAYER_SPRITES
+        {
+            M_UP_1,
+            M_UP_2,
+            M_UP_3,
+            M_DOWN_1,
+            M_DOWN_2,
+            M_DOWN_3,
+            M_LEFT_1,
+            M_LEFT_2,
+            M_LEFT_3,
+            M_RIGHT_1,
+            M_RIGHT_2,
+            M_RIGHT_3,
+            F_UP_1,
+            F_UP_2,
+            F_UP_3,
+            F_DOWN_1,
+            F_DOWN_2,
+            F_DOWN_3,
+            F_LEFT_1,
+            F_LEFT_2,
+            F_LEFT_3,
+            F_RIGHT_1,
+            F_RIGHT_2,
+            F_RIGHT_3,
+        }
+
+        /// <summary>
+        /// An enum of all the room sprite names.
         /// Use these in conjunction with getSpriteRect()!
         /// </summary>
         public enum DUNGEON_SPRITES
@@ -77,10 +128,22 @@ namespace CS3005_Game.Util
         }
 
         /// <summary>
-        /// A Dictionary (key value pair list) of all the sprites' rectangles.
+        /// A Dictionary (key value pair list) of all the room sprites' rectangles.
         /// This is populated in the init() method.
         /// </summary>
-        private static Dictionary<DUNGEON_SPRITES, Rectangle> Sprites = new Dictionary<DUNGEON_SPRITES, Rectangle>();
+        private static Dictionary<DUNGEON_SPRITES, Rectangle> RoomSprites = new Dictionary<DUNGEON_SPRITES, Rectangle>();
+
+        /// <summary>
+        /// A Dictionary (key value pair list) of all the player sprites' rectangles.
+        /// This is populated in the init() method.
+        /// </summary>
+        private static Dictionary<PLAYER_SPRITES, Rectangle> PlayerSprites = new Dictionary<PLAYER_SPRITES, Rectangle>();
+
+        /// <summary>
+        /// A Dictionary (key value pair list) of all the number sprites' rectangles.
+        /// This is populated in the init() method.
+        /// </summary>
+        private static Dictionary<NUMBER_SPRITES, Rectangle> NumberSprites = new Dictionary<NUMBER_SPRITES, Rectangle>();
 
         /// <summary>
         /// The preset background array for a Room.
@@ -89,22 +152,24 @@ namespace CS3005_Game.Util
         /// </summary>
         public static DUNGEON_SPRITES[,] PRESET_BG;
 
+        //Dungeon Sprites:
         public static DUNGEON_SPRITES[] GateSprites = {DUNGEON_SPRITES.GATE_1, DUNGEON_SPRITES.GATE_2, DUNGEON_SPRITES.GATE_3, DUNGEON_SPRITES.GATE_4, DUNGEON_SPRITES.GATE_5};
+        public static DUNGEON_SPRITES[] SwitchSprites = {DUNGEON_SPRITES.SWITCH_7, DUNGEON_SPRITES.SWITCH_6, DUNGEON_SPRITES.SWITCH_5, DUNGEON_SPRITES.SWITCH_4, DUNGEON_SPRITES.SWITCH_3, DUNGEON_SPRITES.SWITCH_2, DUNGEON_SPRITES.SWITCH_1 };
         //public static DUNGEON_SPRITES[] TotemSprites = {DUNGEON_SPRITES.TOTEM_1, DUNGEON_SPRITES.TOTEM_2, DUNGEON_SPRITES.TOTEM_3, DUNGEON_SPRITES.TOTEM_4, DUNGEON_SPRITES.TOTEM_5, DUNGEON_SPRITES.TOTEM_6, DUNGEON_SPRITES.TOTEM_7};
+        //Players sprites:
+        public static PLAYER_SPRITES[] MPlayerUpSprites = {PLAYER_SPRITES.M_UP_1, PLAYER_SPRITES.M_UP_2, PLAYER_SPRITES.M_UP_3};
+        public static PLAYER_SPRITES[] MPlayerDownSprites = { PLAYER_SPRITES.M_DOWN_1, PLAYER_SPRITES.M_DOWN_2, PLAYER_SPRITES.M_DOWN_3 };
+        public static PLAYER_SPRITES[] MPlayerLeftSprites = { PLAYER_SPRITES.M_LEFT_1, PLAYER_SPRITES.M_LEFT_2, PLAYER_SPRITES.M_LEFT_3 };
+        public static PLAYER_SPRITES[] MPlayerRightSprites = { PLAYER_SPRITES.M_RIGHT_1, PLAYER_SPRITES.M_RIGHT_2, PLAYER_SPRITES.M_RIGHT_3 };
+        public static PLAYER_SPRITES[] FPlayerUpSprites = { PLAYER_SPRITES.F_UP_1, PLAYER_SPRITES.F_UP_2, PLAYER_SPRITES.F_UP_3 };
+        public static PLAYER_SPRITES[] FPlayerDownSprites = { PLAYER_SPRITES.F_DOWN_1, PLAYER_SPRITES.F_DOWN_2, PLAYER_SPRITES.F_DOWN_3 };
+        public static PLAYER_SPRITES[] FPlayerLeftSprites = { PLAYER_SPRITES.F_LEFT_1, PLAYER_SPRITES.F_LEFT_2, PLAYER_SPRITES.F_LEFT_3 };
+        public static PLAYER_SPRITES[] FPlayerRightSprites = { PLAYER_SPRITES.F_RIGHT_1, PLAYER_SPRITES.F_RIGHT_2, PLAYER_SPRITES.F_RIGHT_3 };
 
-        /// <summary>
-        /// Creates and returns a Rectangle for the exact position of a sprite on the spritesheet.
-        /// </summary>
-        /// <param name="sprite"></param>
-        /// <returns></returns>
-        private static Rectangle getTextureRect(DUNGEON_SPRITES sprite)
+
+        public static Point getTileSize(DUNGEON_SPRITES sprite)
         {
-            int rectWidth, rectHeight;
-            int rectX = -1;
-            int rectY = -1;
-
-            //Make the Rectangle the right size for the sprite to be loaded
-            switch(sprite)
+            switch (sprite)
             {
                 case DUNGEON_SPRITES.TOTEM_1:
                 case DUNGEON_SPRITES.TOTEM_2:
@@ -114,31 +179,38 @@ namespace CS3005_Game.Util
                 case DUNGEON_SPRITES.TOTEM_6:
                 case DUNGEON_SPRITES.TOTEM_7:
                     //Totems are 2x3
-                    rectWidth = SpriteWidth * 2;
-                    rectHeight = SpriteHeight * 3;
-                    break;
+                    return new Point(2, 3);
                 case DUNGEON_SPRITES.GATE_1:
                 case DUNGEON_SPRITES.GATE_2:
                 case DUNGEON_SPRITES.GATE_3:
                 case DUNGEON_SPRITES.GATE_4:
                 case DUNGEON_SPRITES.GATE_5:
                     //Gates are 3x2
-                    rectWidth = SpriteWidth * 3;
-                    rectHeight = SpriteHeight * 2;
-                    break;
+                    return new Point(3, 2);
                 case DUNGEON_SPRITES.WALL_TL:
                 case DUNGEON_SPRITES.WALL_T:
                 case DUNGEON_SPRITES.WALL_TR:
                     //Top Walls are 1x2
-                    rectWidth = SpriteWidth;
-                    rectHeight = SpriteHeight * 2;
-                    break;
+                    return new Point(1, 2);
                 default:
                     //1x1
-                    rectWidth = SpriteWidth;
-                    rectHeight = SpriteHeight;
-                    break;
+                    return new Point(1, 1);
             }
+        }
+
+        /// <summary>
+        /// Creates and returns a Rectangle for the exact position of a sprite on the spritesheet.
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <returns></returns>
+        private static Rectangle getRoomTextureRect(DUNGEON_SPRITES sprite)
+        {
+            int rectWidth, rectHeight;
+            int rectX = -1;
+            int rectY = -1;
+
+            //Make the Rectangle the right size for the sprite to be loaded
+            Point tileSize = getTileSize(sprite);
             
             //Get the sprite's location on the spritesheet
             // x
@@ -325,7 +397,168 @@ namespace CS3005_Game.Util
             if(rectX == -1 || rectY == -1)
                 throw new Exception("Sprite location has not been specified!");
 
+            return new Rectangle(rectX * SpriteWidth, rectY * SpriteHeight, tileSize.X * SpriteWidth, tileSize.Y * SpriteHeight);
+        }
+
+
+        /// <summary>
+        /// Creates and returns a Rectangle for the exact position of a player sprite on the spritesheet.
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <returns></returns>
+        private static Rectangle getPlayerTextureRect(PLAYER_SPRITES sprite)
+        {
+            int rectWidth = SpriteWidth;
+            int rectHeight = SpriteHeight;
+            int rectX = -1;
+            int rectY = -1;
+
+            //x
+            switch (sprite)
+            {
+                case PLAYER_SPRITES.M_DOWN_1:
+                case PLAYER_SPRITES.M_LEFT_1:
+                case PLAYER_SPRITES.M_RIGHT_1:
+                case PLAYER_SPRITES.M_UP_1:
+                    rectX = 0;
+                    break;
+                case PLAYER_SPRITES.M_DOWN_2:
+                case PLAYER_SPRITES.M_LEFT_2:
+                case PLAYER_SPRITES.M_RIGHT_2:
+                case PLAYER_SPRITES.M_UP_2:
+                    rectX = 1;
+                    break;
+                case PLAYER_SPRITES.M_DOWN_3:
+                case PLAYER_SPRITES.M_LEFT_3:
+                case PLAYER_SPRITES.M_RIGHT_3:
+                case PLAYER_SPRITES.M_UP_3:
+                    rectX = 2;
+                    break;
+                case PLAYER_SPRITES.F_DOWN_1:
+                case PLAYER_SPRITES.F_LEFT_1:
+                case PLAYER_SPRITES.F_RIGHT_1:
+                case PLAYER_SPRITES.F_UP_1:
+                    rectX = 3;
+                    break;
+                case PLAYER_SPRITES.F_DOWN_2:
+                case PLAYER_SPRITES.F_LEFT_2:
+                case PLAYER_SPRITES.F_RIGHT_2:
+                case PLAYER_SPRITES.F_UP_2:
+                    rectX = 4;
+                    break;
+                case PLAYER_SPRITES.F_DOWN_3:
+                case PLAYER_SPRITES.F_LEFT_3:
+                case PLAYER_SPRITES.F_RIGHT_3:
+                case PLAYER_SPRITES.F_UP_3:
+                    rectX = 5;
+                    break;
+            }
+
+            //y
+            switch (sprite)
+            {
+                case PLAYER_SPRITES.M_DOWN_1:
+                case PLAYER_SPRITES.M_DOWN_2:
+                case PLAYER_SPRITES.M_DOWN_3:
+                case PLAYER_SPRITES.F_DOWN_1:
+                case PLAYER_SPRITES.F_DOWN_2:
+                case PLAYER_SPRITES.F_DOWN_3:
+                    rectY = 0;
+                    break;
+                case PLAYER_SPRITES.M_LEFT_1:
+                case PLAYER_SPRITES.M_LEFT_2:
+                case PLAYER_SPRITES.M_LEFT_3:
+                case PLAYER_SPRITES.F_LEFT_1:
+                case PLAYER_SPRITES.F_LEFT_2:
+                case PLAYER_SPRITES.F_LEFT_3:
+                    rectY = 1;
+                    break;
+                case PLAYER_SPRITES.M_RIGHT_1:
+                case PLAYER_SPRITES.M_RIGHT_2:
+                case PLAYER_SPRITES.M_RIGHT_3:
+                case PLAYER_SPRITES.F_RIGHT_1:
+                case PLAYER_SPRITES.F_RIGHT_2:
+                case PLAYER_SPRITES.F_RIGHT_3:
+                    rectY = 2;
+                    break;
+                case PLAYER_SPRITES.M_UP_1:
+                case PLAYER_SPRITES.M_UP_2:
+                case PLAYER_SPRITES.M_UP_3:
+                case PLAYER_SPRITES.F_UP_1:
+                case PLAYER_SPRITES.F_UP_2:
+                case PLAYER_SPRITES.F_UP_3:
+                    rectY = 3;
+                    break;
+            }
+
+            //Incase I missed assigning the sprite a location above
+            if (rectX == -1 || rectY == -1)
+                throw new Exception("Sprite location has not been specified!");
+
             return new Rectangle(rectX * SpriteWidth, rectY * SpriteHeight, rectWidth, rectHeight);
+        }
+
+        /// <summary>
+        /// Creates and returns a Rectangle for the exact position of a number sprite on the spritesheet.
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <returns></returns>
+        private static Rectangle getNumberTextureRect(NUMBER_SPRITES sprite)
+        {
+            int rectWidth = NumSpriteWidth;
+            int rectHeight = NumSpriteHeight;
+            int rectX = -1;
+            int rectY = -1;
+
+            //x
+            switch (sprite)
+            {
+                case NUMBER_SPRITES.N1:
+                case NUMBER_SPRITES.N6:
+                    rectX = 0;
+                    break;
+                case NUMBER_SPRITES.N2:
+                case NUMBER_SPRITES.N7:
+                    rectX = 1;
+                    break;
+                case NUMBER_SPRITES.N3:
+                case NUMBER_SPRITES.N8:
+                    rectX = 2;
+                    break;
+                case NUMBER_SPRITES.N4:
+                case NUMBER_SPRITES.N9:
+                    rectX = 3;
+                    break;
+                case NUMBER_SPRITES.N5:
+                case NUMBER_SPRITES.N0:
+                    rectX = 4;
+                    break;
+            }
+
+            //y
+            switch (sprite)
+            {
+                case NUMBER_SPRITES.N1:
+                case NUMBER_SPRITES.N2:
+                case NUMBER_SPRITES.N3:
+                case NUMBER_SPRITES.N4:
+                case NUMBER_SPRITES.N5:
+                    rectY = 0;
+                    break;
+                case NUMBER_SPRITES.N6:
+                case NUMBER_SPRITES.N7:
+                case NUMBER_SPRITES.N8:
+                case NUMBER_SPRITES.N9:
+                case NUMBER_SPRITES.N0:
+                    rectY = 1;
+                    break;
+            }
+
+            //Incase I missed assigning the sprite a location above
+            if (rectX == -1 || rectY == -1)
+                throw new Exception("Sprite location has not been specified!");
+
+            return new Rectangle(rectX * NumSpriteWidth, rectY * NumSpriteHeight, rectWidth, rectHeight);
         }
 
         /// <summary>
@@ -343,7 +576,19 @@ namespace CS3005_Game.Util
             {
                 if (s == DUNGEON_SPRITES.NULL)
                     continue;
-                Sprites.Add(s, getTextureRect(s));
+                RoomSprites.Add(s, getRoomTextureRect(s));
+            }
+
+            //Does the same for the player sprites
+            foreach (PLAYER_SPRITES s in Enum.GetValues(typeof(PLAYER_SPRITES)))
+            {
+                PlayerSprites.Add(s, getPlayerTextureRect(s));
+            }
+
+            //Does the same for the number sprites
+            foreach (NUMBER_SPRITES s in Enum.GetValues(typeof(NUMBER_SPRITES)))
+            {
+                NumberSprites.Add(s, getNumberSpriteRect(s));
             }
 
             //Creates the PRESET_BG 2D array.
@@ -395,10 +640,34 @@ namespace CS3005_Game.Util
         /// </summary>
         /// <param name="sprite">Name of the sprite to get rectangle of</param>
         /// <returns>Returns an empty Rectangle if sprite name not found</returns>
-        public static Rectangle getSpriteRect(DUNGEON_SPRITES sprite)
+        public static Rectangle getRoomSpriteRect(DUNGEON_SPRITES sprite)
         {
-            if (Sprites.ContainsKey(sprite))
-                return Sprites[sprite];
+            if (RoomSprites.ContainsKey(sprite))
+                return RoomSprites[sprite];
+            return new Rectangle();
+        }
+
+        /// <summary>
+        /// Gets a Rectangle used to specify the exact location of a given player sprite on the spritesheet.
+        /// </summary>
+        /// <param name="sprite">Name of the sprite to get rectangle of</param>
+        /// <returns>Returns an empty Rectangle if sprite name not found</returns>
+        public static Rectangle getPlayerSpriteRect(PLAYER_SPRITES sprite)
+        {
+            if (PlayerSprites.ContainsKey(sprite))
+                return PlayerSprites[sprite];
+            return new Rectangle();
+        }
+
+        /// <summary>
+        /// Gets a Rectangle used to specify the exact location of a given number sprite on the spritesheet.
+        /// </summary>
+        /// <param name="sprite">Name of the sprite to get rectangle of</param>
+        /// <returns>Returns an empty Rectangle if sprite name not found</returns>
+        public static Rectangle getNumberSpriteRect(NUMBER_SPRITES sprite)
+        {
+            if (NumberSprites.ContainsKey(sprite))
+                return NumberSprites[sprite];
             return new Rectangle();
         }
     }

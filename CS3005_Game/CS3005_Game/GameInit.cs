@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CS3005_Game.Environment.Rooms.Levels;
+using CS3005_Game.Entity;
 
 namespace CS3005_Game
 {
@@ -26,6 +27,10 @@ namespace CS3005_Game
             //Loads the spritesheets
             GameData.SpriteSheet = Content.Load<Texture2D>(Reference.SPRITESHEET);
             GameData.PlayerSpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_PLAYER);
+            GameData.Totem1SpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_TOTEMNUM1);
+            GameData.Totem2SpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_TOTEMNUM2);
+            GameData.DebugSquareYellow = Content.Load<Texture2D>(Reference.SPRITE_DEBUGSQUARE_YELLOW);
+            GameData.DebugSquareRed = Content.Load<Texture2D>(Reference.SPRITE_DEBUGSQUARE_RED);
             //Creates the fonts
             GameData.FontMain = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontMain");
             GameData.FontStats = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontStats");
@@ -38,6 +43,9 @@ namespace CS3005_Game
 
             //Initialize textures
             TextureManager.init();
+
+            //Initialize Player
+            GameData.player = new Player();
 
             //Rooms
             GameData.addRoom(new RoomLobby());

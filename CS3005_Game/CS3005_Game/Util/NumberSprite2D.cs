@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CS3005_Game.Util
 {
-    class Sprite2D
+    class NumberSprite2D
     {
         public Texture2D texture;
         public Vector2 position;
@@ -25,24 +25,12 @@ namespace CS3005_Game.Util
         /// </summary>
         /// <param name="spriteSheet"></param>
         /// <param name="sprite"></param>
-        public Sprite2D(Texture2D spriteSheet, TextureManager.DUNGEON_SPRITES sprite, int screenXPos, int screenYPos)
+        public NumberSprite2D(Texture2D spriteSheet, TextureManager.NUMBER_SPRITES sprite, int screenXPos, int screenYPos)
         {
+            //TODO: Finish NumberSprite2D to work with number sprites.
             texture = spriteSheet;
             position = new Vector2(screenXPos, screenYPos);
-            spriteRect = TextureManager.getRoomSpriteRect(sprite);
-            colour = Color.White;
-            rotation = 0f;
-            origin = new Vector2(0f);
-            scale = new Vector2(Reference.screenScale);
-            effect = SpriteEffects.None;
-            layerDepth = 0f;
-        }
-
-        public Sprite2D(Texture2D spriteSheet, int screenXPos, int screenYPos)
-        {
-            texture = spriteSheet;
-            position = new Vector2(screenXPos, screenYPos);
-            spriteRect = texture.Bounds;
+            spriteRect = TextureManager.getNumberSpriteRect(sprite);
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);

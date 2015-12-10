@@ -2,31 +2,22 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Textures\TestCharacter.png</Source>
-      <Name>Textures\TestCharacter</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\TestCharacter.xnb</Output>
-      <Time>2015-11-08T13:29:30+00:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\Unknown.png</Source>
-      <Name>Textures\Unknown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\Unknown.xnb</Output>
-      <Time>2015-11-08T15:14:54+00:00</Time>
-    </Item>
-    <Item>
       <Source>Textures\dungeon_sheet.png</Source>
       <Name>Textures\dungeon_sheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\dungeon_sheet.xnb</Output>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\dungeon_sheet.xnb</Output>
       <Time>2015-11-08T17:23:22+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\players.png</Source>
+      <Name>Textures\players</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\players.xnb</Output>
+      <Time>2015-12-06T22:54:10+00:00</Time>
     </Item>
     <Item>
       <Source>Fonts\FontMain.spritefont</Source>
@@ -34,7 +25,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontMain.xnb</Output>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontMain.xnb</Output>
       <Time>2015-11-21T23:59:54+00:00</Time>
     </Item>
     <Item>
@@ -43,7 +34,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontStats.xnb</Output>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontStats.xnb</Output>
       <Time>2015-11-24T17:51:26+00:00</Time>
     </Item>
     <Item>
@@ -52,8 +43,44 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfo.xnb</Output>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfo.xnb</Output>
       <Time>2015-11-20T12:47:18+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\NumDisplay_1.png</Source>
+      <Name>Textures\NumDisplay_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\NumDisplay_1.xnb</Output>
+      <Time>2015-12-08T17:14:10+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\NumDisplay_2.png</Source>
+      <Name>Textures\NumDisplay_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\NumDisplay_2.xnb</Output>
+      <Time>2015-12-08T17:14:10+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\squareRed.png</Source>
+      <Name>Textures\squareRed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\squareRed.xnb</Output>
+      <Time>2015-12-10T18:20:00+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\squareYellow.png</Source>
+      <Name>Textures\squareYellow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\squareYellow.xnb</Output>
+      <Time>2015-12-10T18:20:00+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -62,10 +89,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_GameContent\</RootDirectory>
-      <LoggerRootDirectory>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\</LoggerRootDirectory>
-      <IntermediateDirectory>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>Z:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_GameContent\</RootDirectory>
+      <LoggerRootDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\</LoggerRootDirectory>
+      <IntermediateDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -93,8 +120,8 @@
         <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-11-12T08:57:59.1795255+00:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2015-11-06T13:13:49.9622167+00:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

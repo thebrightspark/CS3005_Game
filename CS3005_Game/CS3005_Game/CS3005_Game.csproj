@@ -76,7 +76,10 @@
     <Compile Include="Environment\RoomBase.cs" />
     <Compile Include="Environment\RoomLevelBase.cs" />
     <Compile Include="Environment\RoomObjectBase.cs" />
+    <Compile Include="Environment\RoomObjects\RoomObjectButton.cs" />
     <Compile Include="Environment\RoomObjects\RoomObjectGate.cs" />
+    <Compile Include="Environment\RoomObjects\RoomObjectNumTotem.cs" />
+    <Compile Include="Environment\RoomObjects\RoomObjectSwitch.cs" />
     <Compile Include="Environment\RoomObjects\Text\ScreenTextWithBG.cs" />
     <Compile Include="Environment\Rooms\Levels\RoomLevel1.cs" />
     <Compile Include="Environment\Rooms\RoomLevelSelect.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Util\Config.cs" />
     <Compile Include="Util\Names.cs" />
+    <Compile Include="Util\NumberSprite2D.cs" />
     <Compile Include="Util\PlayerSprite2D.cs" />
     <Compile Include="Util\Reference.cs" />
     <Compile Include="Environment\RoomObjects\Text\ScreenText.cs" />

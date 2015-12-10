@@ -21,12 +21,16 @@ namespace CS3005_Game.Util
         public static class Objects
         {
             public static readonly String GATE_EXIT = "Exit";
+            public static readonly String BUTTON = "Button";
+            public static readonly String SWITCH = "Switch";
         }
 
         public static class Text
         {
             public static readonly String GAME_NAME = "Dungeon Solvers";
             public static readonly String FPS = "FPS: ";
+
+            public static readonly String PLAYER_ACTION_INFO = "Press " + Reference.keyAction.ToString() + " To Use";
 
             public static readonly String LOBBY_TITLE = "Main Menu";
             public static readonly String LOBBY_MENU_PLAY = "Play!";

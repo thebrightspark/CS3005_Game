@@ -65,6 +65,14 @@ namespace CS3005_Game
                             x += spriteWidth - 1;
                     }
                 }
+
+                //Save local copy of Room's objects
+                roomObjects = curRoom.getRoomObjects().Values.ToArray();
+                roomTextObjects = curRoom.getTextObjects().Values.ToArray();
+
+                //Change the player location to the start
+                if(curRoom is RoomLevelBase)
+                    GameData.player.setCoords(Reference.PLAYER_START_X, Reference.PLAYER_START_Y);
             }
 
             //Draw the background
@@ -73,20 +81,27 @@ namespace CS3005_Game
                 for (int x = 0; x < roomBgSprites.GetLength(0); x++)
                 {
                     roomBgSprites[x, y].Draw(spriteBatch);
+                    if (Reference.debugSquares)
+                        (new Sprite2D(GameData.DebugSquareYellow, x * Reference.PIXELS_PER_GRID_SQUARE, y * Reference.PIXELS_PER_GRID_SQUARE)).Draw(spriteBatch);
                 }
             }
 
             //Draw the Room Objects
-            foreach (RoomObjectBase obj in curRoom.getRoomObjects().Values)
+            foreach (RoomObjectBase obj in roomObjects)
             {
                 obj.Draw(spriteBatch);
             }
 
             //Draw the Player
-            GameData.player.Draw(spriteBatch);
+            if (curRoom is RoomLevelBase)
+            {
+                GameData.player.Draw(spriteBatch);
+                if (Reference.debugSquares)
+                    (new Sprite2D(GameData.DebugSquareRed, (int)GameData.player.xPos, (int)GameData.player.yPos)).Draw(spriteBatch);
+            }
 
             //Draw the Text Objects
-            foreach (ScreenText obj in curRoom.getTextObjects().Values)
+            foreach (ScreenText obj in roomTextObjects)
             {
                 obj.Draw(spriteBatch);
             }

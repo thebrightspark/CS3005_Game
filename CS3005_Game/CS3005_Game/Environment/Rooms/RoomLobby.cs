@@ -48,9 +48,8 @@ namespace CS3005_Game.Environment.Rooms
             }
         }
 
-        public override void update()
+        public override void Update()
         {
-            //TODO: Finish lobby with menu, and move exit gate to a level.
             if (!GameData.keyboard.IsKeyDown(Keys.Down) && !GameData.keyboard.IsKeyDown(Keys.Up))
                 isKeyDown = false;
 
@@ -107,7 +106,7 @@ namespace CS3005_Game.Environment.Rooms
                         break;
                     case 2:
                         //Level Select
-
+                        GameData.setCurrentRoom(Names.Rooms.LEVEL_SELECT);
                         break;
                     default:
                         //Nothing
@@ -115,7 +114,7 @@ namespace CS3005_Game.Environment.Rooms
                 }
             }
 
-            base.update();
+            base.Update();
         }
     }
 }
