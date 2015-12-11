@@ -33,6 +33,7 @@ namespace CS3005_Game.Util
 
         public static readonly String PATH_TEXTURES = "Textures/";
         public static readonly String PATH_FONTS = "Fonts/";
+        public static readonly String PATH_SOUNDS = "Sounds/";
         public static readonly String SPRITESHEET = PATH_TEXTURES + "dungeon_sheet";
         public static readonly String SPRITE_PLAYER = PATH_TEXTURES + "players";
         public static readonly String SPRITE_NUMBER = PATH_TEXTURES + "NumFont";

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using CS3005_Game.Environment.Rooms.Levels;
 using CS3005_Game.Entity;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CS3005_Game
 {
@@ -44,6 +45,11 @@ namespace CS3005_Game
             GameData.TexturePlainAlpha.SetData(new Color[] { new Color(255, 255, 255, 32) });
             GameData.TexturePlainAlphaDarker = new Texture2D(graphics.GraphicsDevice, 1, 1);
             GameData.TexturePlainAlphaDarker.SetData(new Color[] { new Color(255, 255, 255, 200) });
+            //Creates the sounds
+            SoundEffect.MasterVolume = Config.soundVolume;
+            GameData.SoundSuccess = Content.Load<SoundEffect>(Reference.PATH_SOUNDS + "success");
+            GameData.SoundClick1 = Content.Load<SoundEffect>(Reference.PATH_SOUNDS + "click1");
+            GameData.SoundClick2 = Content.Load<SoundEffect>(Reference.PATH_SOUNDS + "click2");
 
             //Initialize textures
             TextureManager.init();

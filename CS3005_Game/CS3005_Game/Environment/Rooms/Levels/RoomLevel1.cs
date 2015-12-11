@@ -70,7 +70,9 @@ namespace CS3005_Game.Environment.Rooms.Levels
 
             //Exit gate condition
             if ((((RoomObjectNumTotem)getRoomObject(Totem_1)).getNumber() + ((RoomObjectNumTotem)getRoomObject(Totem_2)).getNumber()) == ((RoomObjectNumTotem)getRoomObject(Totem_Sum)).getNumber())
+            {
                 gateExit.openGate();
+            }
             else
                 gateExit.closeGate();
 

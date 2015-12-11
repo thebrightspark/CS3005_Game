@@ -7,6 +7,7 @@ using CS3005_Game.Util;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using CS3005_Game.Entity;
+using Microsoft.Xna.Framework.Audio;
 
 namespace CS3005_Game
 {
@@ -72,6 +73,13 @@ namespace CS3005_Game
         /// Smaller version of FontInfo.
         /// </summary>
         public static SpriteFont FontInfoS;
+
+
+        public static SoundEffect SoundSuccess;
+
+        public static SoundEffect SoundClick1;
+
+        public static SoundEffect SoundClick2;
 
         /// <summary>
         /// The currently loaded Room.

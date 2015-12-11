@@ -30,6 +30,7 @@ namespace CS3005_Game.Environment.RoomObjects
         public void activate()
         {
             active = true;
+            GameData.SoundClick1.Play();
         }
 
         public void deactivate()

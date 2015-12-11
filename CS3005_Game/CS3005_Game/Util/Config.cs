@@ -11,6 +11,7 @@ namespace CS3005_Game.Util
         public static float screenScale = 2.5f;
         public static int updatesPerSecond = 10;
         public static int playerMoveSpeed = 3;
+        public static float soundVolume = 1.0f;
 
         public static bool debugSquares = false;
 

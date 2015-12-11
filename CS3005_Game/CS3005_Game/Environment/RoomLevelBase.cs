@@ -15,6 +15,7 @@ namespace CS3005_Game.Environment
         protected RoomObjectGate gateExit = new RoomObjectGate();
         //This is true once the player has got through the exit gate.
         protected bool complete = false;
+        private bool canPlaySuccessSound = true;
 
         public RoomLevelBase(String roomName) : base(roomName)
         {
@@ -59,6 +60,14 @@ namespace CS3005_Game.Environment
                 GameData.player.resetCoords();
                 GameData.setCurrentRoom(Names.Rooms.LOBBY);
             }
+
+            if (gateExit.isOpen() && canPlaySuccessSound)
+            {
+                GameData.SoundSuccess.Play();
+                canPlaySuccessSound = false;
+            }
+            else if (!gateExit.isOpen())
+                canPlaySuccessSound = true;
 
             base.Update();
         }

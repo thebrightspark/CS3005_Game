@@ -79,6 +79,8 @@ namespace CS3005_Game.Environment.Rooms
                 if (isKeyDown)
                 {
                     //Console.WriteLine("Key Pressed");
+                    GameData.SoundClick1.Play();
+
                     for (int i = 0; i < MenuObjects.Count; ++i)
                     {
                         if (i+1 == selection)
@@ -92,6 +94,9 @@ namespace CS3005_Game.Environment.Rooms
             if (!isKeyDown && GameData.keyboard.IsKeyDown(Config.keyAction))
             {
                 isKeyDown = true;
+
+                GameData.SoundClick1.Play();
+
                 //Enter
                 switch (selection)
                 {

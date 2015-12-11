@@ -100,6 +100,33 @@
       <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfoS.xnb</Output>
       <Time>2015-12-11T01:16:58+00:00</Time>
     </Item>
+    <Item>
+      <Source>Sounds\click1.wav</Source>
+      <Name>Sounds\click1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Sounds\click1.xnb</Output>
+      <Time>2015-12-11T21:21:48+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\click2.wav</Source>
+      <Name>Sounds\click2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Sounds\click2.xnb</Output>
+      <Time>2015-12-11T21:21:48+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\success.wav</Source>
+      <Name>Sounds\success</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Sounds\success.xnb</Output>
+      <Time>2015-12-11T21:21:48+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3BEB4D76-D94B-4920-8609-4F3CD3331B0F}</ContentProjectGUID>

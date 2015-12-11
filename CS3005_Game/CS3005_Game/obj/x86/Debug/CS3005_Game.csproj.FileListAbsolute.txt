@@ -64,3 +64,6 @@ H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\CS30
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\CS3005_Game.application
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.exe.manifest
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\obj\x86\Debug\CS3005_Game.application
+H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Sounds\click1.xnb
+H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Sounds\click2.xnb
+H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Sounds\success.xnb
