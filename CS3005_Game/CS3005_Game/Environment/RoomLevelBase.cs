@@ -25,9 +25,22 @@ namespace CS3005_Game.Environment
             addNewRoomObject(gateExit);
         }
 
+        /// <summary>
+        /// Returns true if the level has been completed. I.e. player has got through the gate.
+        /// </summary>
+        /// <returns></returns>
         public bool isCompleted()
         {
             return complete;
+        }
+
+        /// <summary>
+        /// Will reset the level.
+        /// By default this will just close the exit gate.
+        /// </summary>
+        virtual public void reset()
+        {
+            gateExit.closeGate();
         }
 
         public override void Update()
@@ -42,6 +55,7 @@ namespace CS3005_Game.Environment
             if (complete && GameData.keyboard.IsKeyDown(Config.keyAction))
             {
                 complete = false;
+                reset();
                 GameData.player.resetCoords();
                 GameData.setCurrentRoom(Names.Rooms.LOBBY);
             }

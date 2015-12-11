@@ -16,14 +16,14 @@ namespace CS3005_Game.Environment.RoomObjects
             CLOSED,
             OPEN
         }
-        private GateState state = GateState.CLOSED;
+        private GateState state = GateState.OPEN;
 
         /// <summary>
         /// Automatically makes the gate the exit - positioning it at the top center of the Room.
         /// </summary>
         public RoomObjectGate() : base(Names.Objects.GATE_EXIT, TextureManager.GateSprites, false, 7, 1)
         {
-
+            changeSprite(getNumSprites());
         }
 
         public RoomObjectGate(String name, int xPos, int yPos) : base(name, TextureManager.GateSprites, false, xPos, yPos)
@@ -56,6 +56,7 @@ namespace CS3005_Game.Environment.RoomObjects
 
         public override void Update()
         {
+            //Console.WriteLine("Gate -> " + state.ToString() + " - " + getCurrentFrame() + "/" + getNumSprites());
             switch(state)
             {
                 case GateState.OPENING:

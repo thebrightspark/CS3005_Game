@@ -86,10 +86,7 @@ namespace CS3005_Game.Environment
 
         public int getNumSprites()
         {
-            if (spriteAnimatedTexture == null)
-                return 1;
-            else
-                return totalFrames;
+            return totalFrames;
         }
 
         public Rectangle getRect()
