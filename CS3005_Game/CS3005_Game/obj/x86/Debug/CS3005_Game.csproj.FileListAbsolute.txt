@@ -58,3 +58,5 @@ H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Cont
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\NumDisplay_2.xnb
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\squareRed.xnb
 H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\squareYellow.xnb
+H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\NumFont.xnb
+H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfoS.xnb

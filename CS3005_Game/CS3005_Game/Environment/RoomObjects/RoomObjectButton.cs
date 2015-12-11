@@ -11,9 +11,20 @@ namespace CS3005_Game.Environment.RoomObjects
         private String displayName = Names.Objects.BUTTON;
         private bool active = false;
 
-        public RoomObjectButton(String name, int x, int y) : base((Names.Objects.BUTTON + name), TextureManager.DUNGEON_SPRITES.BUTTON_1, x, y)
+        public RoomObjectButton(String name, TextureManager.DUNGEON_SPRITES buttonSprite, int x, int y) : base(name, buttonSprite, x, y)
         {
-            //TODO: Finish button!
+            switch (buttonSprite)
+            {
+                case TextureManager.DUNGEON_SPRITES.BUTTON_1:
+                case TextureManager.DUNGEON_SPRITES.BUTTON_2:
+                case TextureManager.DUNGEON_SPRITES.BUTTON_3:
+                case TextureManager.DUNGEON_SPRITES.BUTTON_4:
+                case TextureManager.DUNGEON_SPRITES.BUTTON_5:
+                    break;
+                default:
+                    new Exception("Must give a button sprite!");
+                    break;
+            }
         }
 
         public void activate()
@@ -28,7 +39,12 @@ namespace CS3005_Game.Environment.RoomObjects
 
         public bool isActive()
         {
-            return active;
+            if (active)
+            {
+                active = false;
+                return true;
+            }
+            return false;
         }
 
         public override bool canBeInteractedWith()

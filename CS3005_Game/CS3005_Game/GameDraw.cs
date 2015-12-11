@@ -33,6 +33,8 @@ namespace CS3005_Game
         private static ScreenText[] roomTextObjects;
 
         private static ScreenText fpsText = new ScreenText(null, GameData.FontMain, Names.Text.FPS + "-1", Color.HotPink, 5, 50);
+        private static Rectangle overlayBgRect = new Rectangle(0, 0, Reference.SCREEN_WIDTH, Reference.SCREEN_HEIGHT);
+        private static ScreenText overlayText = new ScreenText(null, GameData.FontMain, Names.Text.LEVEL_COMPLETE, Color.White, 150);
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -71,8 +73,8 @@ namespace CS3005_Game
                 roomTextObjects = curRoom.getTextObjects().Values.ToArray();
 
                 //Change the player location to the start
-                if(curRoom is RoomLevelBase)
-                    GameData.player.setCoords(Reference.PLAYER_START_X, Reference.PLAYER_START_Y);
+                if (curRoom is RoomLevelBase)
+                    GameData.player.resetCoords();
             }
 
             //Draw the background
@@ -81,7 +83,7 @@ namespace CS3005_Game
                 for (int x = 0; x < roomBgSprites.GetLength(0); x++)
                 {
                     roomBgSprites[x, y].Draw(spriteBatch);
-                    if (Reference.debugSquares)
+                    if (Config.debugSquares)
                         (new Sprite2D(GameData.DebugSquareYellow, x * Reference.PIXELS_PER_GRID_SQUARE, y * Reference.PIXELS_PER_GRID_SQUARE)).Draw(spriteBatch);
                 }
             }
@@ -96,7 +98,7 @@ namespace CS3005_Game
             if (curRoom is RoomLevelBase)
             {
                 GameData.player.Draw(spriteBatch);
-                if (Reference.debugSquares)
+                if (Config.debugSquares)
                     (new Sprite2D(GameData.DebugSquareRed, (int)GameData.player.xPos, (int)GameData.player.yPos)).Draw(spriteBatch);
             }
 
@@ -104,6 +106,13 @@ namespace CS3005_Game
             foreach (ScreenText obj in roomTextObjects)
             {
                 obj.Draw(spriteBatch);
+            }
+
+            //Draw end of level overlay
+            if (curRoom is RoomLevelBase && ((RoomLevelBase)curRoom).isCompleted())
+            {
+                spriteBatch.Draw(GameData.TexturePlainAlphaDarker, overlayBgRect, Reference.BG_GREY);
+                overlayText.Draw(spriteBatch);
             }
 
             spriteBatch.End();

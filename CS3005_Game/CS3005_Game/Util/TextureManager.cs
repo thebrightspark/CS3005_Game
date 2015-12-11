@@ -18,23 +18,6 @@ namespace CS3005_Game.Util
         private static int NumSpriteHeight = 12;
 
         /// <summary>
-        /// An enum of all the number sprite names.
-        /// </summary>
-        public enum NUMBER_SPRITES
-        {
-            N1,
-            N2,
-            N3,
-            N4,
-            N5,
-            N6,
-            N7,
-            N8,
-            N9,
-            N0
-        }
-
-        /// <summary>
         /// An enum of all the player sprite names.
         /// </summary>
         public enum PLAYER_SPRITES
@@ -143,7 +126,7 @@ namespace CS3005_Game.Util
         /// A Dictionary (key value pair list) of all the number sprites' rectangles.
         /// This is populated in the init() method.
         /// </summary>
-        private static Dictionary<NUMBER_SPRITES, Rectangle> NumberSprites = new Dictionary<NUMBER_SPRITES, Rectangle>();
+        private static Dictionary<int, Rectangle> NumberSprites = new Dictionary<int, Rectangle>();
 
         /// <summary>
         /// The preset background array for a Room.
@@ -205,7 +188,6 @@ namespace CS3005_Game.Util
         /// <returns></returns>
         private static Rectangle getRoomTextureRect(DUNGEON_SPRITES sprite)
         {
-            int rectWidth, rectHeight;
             int rectX = -1;
             int rectY = -1;
 
@@ -297,25 +279,25 @@ namespace CS3005_Game.Util
                     break;
                 case DUNGEON_SPRITES.BUTTON_1:
                 case DUNGEON_SPRITES.BEACON_1:
-                    rectX = 20;
+                    rectX = 19;
                     break;
                 case DUNGEON_SPRITES.TOTEM_6:
                 case DUNGEON_SPRITES.BUTTON_2:
                 case DUNGEON_SPRITES.BEACON_2:
-                    rectX = 21;
+                    rectX = 20;
                     break;
                 case DUNGEON_SPRITES.BUTTON_3:
                 case DUNGEON_SPRITES.BEACON_3:
-                    rectX = 22;
+                    rectX = 21;
                     break;
                 case DUNGEON_SPRITES.TOTEM_7:
                 case DUNGEON_SPRITES.BUTTON_4:
                 case DUNGEON_SPRITES.BEACON_4:
-                    rectX = 23;
+                    rectX = 22;
                     break;
                 case DUNGEON_SPRITES.BUTTON_5:
                 case DUNGEON_SPRITES.BEACON_5:
-                    rectX = 24;
+                    rectX = 23;
                     break;
             }
 
@@ -408,8 +390,6 @@ namespace CS3005_Game.Util
         /// <returns></returns>
         private static Rectangle getPlayerTextureRect(PLAYER_SPRITES sprite)
         {
-            int rectWidth = SpriteWidth;
-            int rectHeight = SpriteHeight;
             int rectX = -1;
             int rectY = -1;
 
@@ -495,7 +475,7 @@ namespace CS3005_Game.Util
             if (rectX == -1 || rectY == -1)
                 throw new Exception("Sprite location has not been specified!");
 
-            return new Rectangle(rectX * SpriteWidth, rectY * SpriteHeight, rectWidth, rectHeight);
+            return new Rectangle(rectX * SpriteWidth, rectY * SpriteHeight, SpriteWidth, SpriteHeight);
         }
 
         /// <summary>
@@ -503,34 +483,32 @@ namespace CS3005_Game.Util
         /// </summary>
         /// <param name="sprite"></param>
         /// <returns></returns>
-        private static Rectangle getNumberTextureRect(NUMBER_SPRITES sprite)
+        private static Rectangle getNumberTextureRect(int sprite)
         {
-            int rectWidth = NumSpriteWidth;
-            int rectHeight = NumSpriteHeight;
             int rectX = -1;
             int rectY = -1;
 
             //x
             switch (sprite)
             {
-                case NUMBER_SPRITES.N1:
-                case NUMBER_SPRITES.N6:
+                case 1:
+                case 6:
                     rectX = 0;
                     break;
-                case NUMBER_SPRITES.N2:
-                case NUMBER_SPRITES.N7:
+                case 2:
+                case 7:
                     rectX = 1;
                     break;
-                case NUMBER_SPRITES.N3:
-                case NUMBER_SPRITES.N8:
+                case 3:
+                case 8:
                     rectX = 2;
                     break;
-                case NUMBER_SPRITES.N4:
-                case NUMBER_SPRITES.N9:
+                case 4:
+                case 9:
                     rectX = 3;
                     break;
-                case NUMBER_SPRITES.N5:
-                case NUMBER_SPRITES.N0:
+                case 5:
+                case 0:
                     rectX = 4;
                     break;
             }
@@ -538,18 +516,18 @@ namespace CS3005_Game.Util
             //y
             switch (sprite)
             {
-                case NUMBER_SPRITES.N1:
-                case NUMBER_SPRITES.N2:
-                case NUMBER_SPRITES.N3:
-                case NUMBER_SPRITES.N4:
-                case NUMBER_SPRITES.N5:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
                     rectY = 0;
                     break;
-                case NUMBER_SPRITES.N6:
-                case NUMBER_SPRITES.N7:
-                case NUMBER_SPRITES.N8:
-                case NUMBER_SPRITES.N9:
-                case NUMBER_SPRITES.N0:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 0:
                     rectY = 1;
                     break;
             }
@@ -558,7 +536,7 @@ namespace CS3005_Game.Util
             if (rectX == -1 || rectY == -1)
                 throw new Exception("Sprite location has not been specified!");
 
-            return new Rectangle(rectX * NumSpriteWidth, rectY * NumSpriteHeight, rectWidth, rectHeight);
+            return new Rectangle(rectX * NumSpriteWidth, rectY * NumSpriteHeight, NumSpriteWidth, NumSpriteHeight);
         }
 
         /// <summary>
@@ -586,9 +564,9 @@ namespace CS3005_Game.Util
             }
 
             //Does the same for the number sprites
-            foreach (NUMBER_SPRITES s in Enum.GetValues(typeof(NUMBER_SPRITES)))
+            for (int num = 0; num <= 9; num++)
             {
-                NumberSprites.Add(s, getNumberSpriteRect(s));
+                NumberSprites.Add(num, getNumberTextureRect(num));
             }
 
             //Creates the PRESET_BG 2D array.
@@ -664,8 +642,10 @@ namespace CS3005_Game.Util
         /// </summary>
         /// <param name="sprite">Name of the sprite to get rectangle of</param>
         /// <returns>Returns an empty Rectangle if sprite name not found</returns>
-        public static Rectangle getNumberSpriteRect(NUMBER_SPRITES sprite)
+        public static Rectangle getNumberSpriteRect(int sprite)
         {
+            if (sprite < 0 || sprite > 9)
+                new Exception("Sprite must be between 0 and 9!");
             if (NumberSprites.ContainsKey(sprite))
                 return NumberSprites[sprite];
             return new Rectangle();

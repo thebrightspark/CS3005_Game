@@ -82,6 +82,24 @@
       <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\squareYellow.xnb</Output>
       <Time>2015-12-10T18:20:00+00:00</Time>
     </Item>
+    <Item>
+      <Source>Textures\NumFont.png</Source>
+      <Name>Textures\NumFont</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Textures\NumFont.xnb</Output>
+      <Time>2015-12-10T22:45:26+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\FontInfoS.spritefont</Source>
+      <Name>Fonts\FontInfoS</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>H:\ComputerScience\CS3005\CS3005_Game\CS3005_Game\CS3005_Game\bin\x86\Debug\Content\Fonts\FontInfoS.xnb</Output>
+      <Time>2015-12-11T01:16:58+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{3BEB4D76-D94B-4920-8609-4F3CD3331B0F}</ContentProjectGUID>

@@ -56,7 +56,6 @@ namespace CS3005_Game.Environment.RoomObjects
 
         public override void Update()
         {
-            Console.WriteLine("Gate state: " + state.ToString());
             switch(state)
             {
                 case GateState.OPENING:

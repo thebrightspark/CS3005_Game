@@ -18,6 +18,7 @@ namespace CS3005_Game.Util
         public Vector2 scale;
         private SpriteEffects effect;
         private float layerDepth;
+        private int spriteNum;
 
         /// <summary>
         /// Create a 2D sprite using the sprite sheet and a sprite name.
@@ -25,16 +26,16 @@ namespace CS3005_Game.Util
         /// </summary>
         /// <param name="spriteSheet"></param>
         /// <param name="sprite"></param>
-        public NumberSprite2D(Texture2D spriteSheet, TextureManager.NUMBER_SPRITES sprite, int screenXPos, int screenYPos)
+        public NumberSprite2D(Texture2D spriteSheet, int sprite, int screenXPos, int screenYPos)
         {
-            //TODO: Finish NumberSprite2D to work with number sprites.
             texture = spriteSheet;
             position = new Vector2(screenXPos, screenYPos);
+            spriteNum = sprite;
             spriteRect = TextureManager.getNumberSpriteRect(sprite);
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);
-            scale = new Vector2(Reference.screenScale);
+            scale = new Vector2(Config.screenScale);
             effect = SpriteEffects.None;
             layerDepth = 0f;
         }
@@ -43,9 +44,19 @@ namespace CS3005_Game.Util
         /// Changes the current sprite to the one given using the TextureManager.
         /// </summary>
         /// <param name="sprite">Sprite name</param>
-        public void setSprite(TextureManager.DUNGEON_SPRITES sprite)
+        public void setSprite(int sprite)
         {
-            spriteRect = TextureManager.getRoomSpriteRect(sprite);
+            spriteNum = sprite;
+            spriteRect = TextureManager.getNumberSpriteRect(sprite);
+        }
+
+        /// <summary>
+        /// Gets the number sprite.
+        /// </summary>
+        /// <returns></returns>
+        public int getSprite()
+        {
+            return spriteNum;
         }
 
         /// <summary>

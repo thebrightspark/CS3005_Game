@@ -52,6 +52,7 @@ namespace CS3005_Game
         /// Plain texture to be used for single-coloured rectangles which are semi-transparent.
         /// </summary>
         public static Texture2D TexturePlainAlpha;
+        public static Texture2D TexturePlainAlphaDarker;
         /// <summary>
         /// Used for titles and other similar large text.
         /// Copperplate Gothic Bold.
@@ -67,6 +68,10 @@ namespace CS3005_Game
         /// Century Gothic (Bold)
         /// </summary>
         public static SpriteFont FontInfo;
+        /// <summary>
+        /// Smaller version of FontInfo.
+        /// </summary>
+        public static SpriteFont FontInfoS;
 
         /// <summary>
         /// The currently loaded Room.

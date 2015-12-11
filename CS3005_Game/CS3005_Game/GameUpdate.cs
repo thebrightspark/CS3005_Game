@@ -16,7 +16,7 @@ namespace CS3005_Game
     /// </summary>
     class GameUpdate
     {
-        private static int updatesMillis = (int)((1 / (float)Reference.updatesPerSecond) * 1000);
+        private static int updatesMillis = (int)((1 / (float)Config.updatesPerSecond) * 1000);
         private static short updateCount = 0;
         private static int thisMillis = 0;
 
@@ -41,11 +41,11 @@ namespace CS3005_Game
 
                 //Add to the update counter
                 updateCount++;
-                if (updateCount >= Reference.updatesPerSecond)
+                if (updateCount >= Config.updatesPerSecond)
                     updateCount = 0;
             }
 
-            if (GameData.getCurrentRoom() is RoomLevelBase)
+            if (GameData.getCurrentRoom() is RoomLevelBase && !((RoomLevelBase)GameData.getCurrentRoom()).isCompleted())
             {
                 //Update the player
                 GameData.player.Update(GameData.keyboard, (RoomLevelBase) GameData.getCurrentRoom());

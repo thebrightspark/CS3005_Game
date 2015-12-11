@@ -181,7 +181,7 @@ namespace CS3005_Game.Environment
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        virtual public void Draw(SpriteBatch spriteBatch)
         {
             if (spriteTexture != null)
                 //Normal texture

@@ -10,7 +10,6 @@ namespace CS3005_Game.Environment.RoomObjects.Text
 {
     class ScreenText
     {
-
         private String Name;
         private SpriteFont Font;
         private String Text;
@@ -63,6 +62,7 @@ namespace CS3005_Game.Environment.RoomObjects.Text
         {
             Text = text;
             Size = Font.MeasureString(Text);
+            Position = new Vector2((Reference.SCREEN_WIDTH / 2) - (Size.X / 2), Position.Y);
         }
 
         public float getWidth()

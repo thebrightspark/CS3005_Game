@@ -10,25 +10,15 @@ namespace CS3005_Game.Util
 {
     class Reference
     {
-        public static float screenScale = 2.5f;
-        public static int updatesPerSecond = 10;
-        public static int playerMoveSpeed = 3;
-        
-
-        public static bool debugSquares = true;
-
-        public static Keys keyUp = Keys.Up;
-        public static Keys keyDown = Keys.Down;
-        public static Keys keyLeft = Keys.Left;
-        public static Keys keyRight = Keys.Right;
-        public static Keys keyAction = Keys.Space;
-
         /// <summary>
         /// How many pixels each grid square is by width and height.
         /// </summary>
-        public static readonly int PIXELS_PER_GRID_SQUARE = (int) (16 * screenScale);
+        public static readonly int PIXELS_PER_GRID_SQUARE = (int)(16 * Config.screenScale);
 
-        public static float playerActionRange = PIXELS_PER_GRID_SQUARE * 1.5f;
+        /// <summary>
+        /// The action range of the player
+        /// </summary>
+        public static readonly float playerActionRange = PIXELS_PER_GRID_SQUARE * 1.5f;
         /// <summary>
         /// How many grid squares wide the Rooms will be.
         /// </summary>
@@ -45,6 +35,7 @@ namespace CS3005_Game.Util
         public static readonly String PATH_FONTS = "Fonts/";
         public static readonly String SPRITESHEET = PATH_TEXTURES + "dungeon_sheet";
         public static readonly String SPRITE_PLAYER = PATH_TEXTURES + "players";
+        public static readonly String SPRITE_NUMBER = PATH_TEXTURES + "NumFont";
         public static readonly String SPRITE_TOTEMNUM1 = PATH_TEXTURES + "NumDisplay_1";
         public static readonly String SPRITE_TOTEMNUM2 = PATH_TEXTURES + "NumDisplay_2";
         public static readonly String SPRITE_DEBUGSQUARE_YELLOW = PATH_TEXTURES + "squareYellow";

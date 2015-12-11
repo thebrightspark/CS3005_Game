@@ -36,7 +36,7 @@ namespace CS3005_Game.Util
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);
-            scale = new Vector2(Reference.screenScale);
+            scale = new Vector2(Config.screenScale);
             effect = SpriteEffects.None;
             layerDepth = 0f;
             totalFrames = enumSprites.Length-1;

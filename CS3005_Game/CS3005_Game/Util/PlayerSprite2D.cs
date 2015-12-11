@@ -36,7 +36,7 @@ namespace CS3005_Game.Util
             colour = Color.White;
             rotation = 0f;
             origin = new Vector2(0f);
-            scale = new Vector2(Reference.screenScale);
+            scale = new Vector2(Config.screenScale);
             effect = SpriteEffects.None;
             layerDepth = 0f;
             genderIsMale = isMale;
@@ -75,6 +75,14 @@ namespace CS3005_Game.Util
             return spriteRect.Height;
         }
 
+        public String getGender()
+        {
+            if (genderIsMale)
+                return "Male";
+            else
+                return "Female";
+        }
+
         /// <summary>
         /// Sets the gender of the player.
         /// If input is false, then player is female.
@@ -83,6 +91,16 @@ namespace CS3005_Game.Util
         public void setGender(bool male)
         {
             genderIsMale = male;
+            if (genderIsMale)
+                currentMovementSprites = TextureManager.MPlayerUpSprites;
+            else
+                currentMovementSprites = TextureManager.FPlayerUpSprites;
+        }
+
+
+        public void toggleGender()
+        {
+            setGender(!genderIsMale);
         }
 
         /// <summary>

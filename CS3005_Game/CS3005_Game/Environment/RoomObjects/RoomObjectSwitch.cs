@@ -11,7 +11,7 @@ namespace CS3005_Game.Environment.RoomObjects
         private String displayName = Names.Objects.SWITCH;
         private bool active = false;
 
-        public RoomObjectSwitch(String name, int x, int y) : base((Names.Objects.SWITCH + name), TextureManager.SwitchSprites, false, x, y)
+        public RoomObjectSwitch(String name, int x, int y) : base(name, TextureManager.SwitchSprites, false, x, y)
         {
             //TODO: Finish switch!
         }

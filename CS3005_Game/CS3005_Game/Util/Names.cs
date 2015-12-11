@@ -30,16 +30,26 @@ namespace CS3005_Game.Util
             public static readonly String GAME_NAME = "Dungeon Solvers";
             public static readonly String FPS = "FPS: ";
 
-            public static readonly String PLAYER_ACTION_INFO = "Press " + Reference.keyAction.ToString() + " To Use";
+            public static readonly String PLAYER_ACTION_INFO = "Press " + Config.keyAction.ToString() + " To Use";
 
             public static readonly String LOBBY_TITLE = "Main Menu";
             public static readonly String LOBBY_MENU_PLAY = "Play!";
             public static readonly String LOBBY_MENU_CONTINUE = "Continue";
+            public static readonly String LOBBY_MENU_CHARACTER = "Change Character";
             public static readonly String LOBBY_MENU_LEVEL_SELECT = "Level Selection";
             public static readonly String LOBBY_MENU_BACK = "<- Back <-";
-            public static readonly String LOBBY_CREDITS = "Thanks to Buch for the textures -> opengameart.org/users/buch";
+            public static readonly String LOBBY_INFO_GENDER = "Current Player Gender: ";
+            public static readonly String LOBBY_CREDITS = "Thanks to Lanea Zimmerman for the player textures -> opengameart.org/content/tiny-16-basic \nAnd thanks to Buch for all the other textures -> opengameart.org/users/buch";
 
             public static readonly String LEVELSELECT_TITLE = Rooms.LEVEL_SELECT;
+
+            public static readonly String LEVEL_COMPLETE = "Well Done!\n\nYou completed the demo level\nof this game!\n\nPress " + Config.keyAction.ToString() + " to go back to\nthe main menu.";
+
+            public static readonly String LEVEL_1_INFO_1 = "To get through the exit gate,\n"+
+                                                            "use the buttons to make the\n"+
+                                                            "first two numbers equal the\n"+
+                                                            "third when added together.";
+            public static readonly String LEVEL_1_INFO_2 = "Exit Gate";
         }
     }
 }

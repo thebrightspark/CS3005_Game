@@ -103,13 +103,17 @@ namespace CS3005_Game.Environment
         }
 
         /// <summary>
-        /// Returns the Room objects with the given name.
+        /// Returns the Room object with the given name.
+        /// Null if object doesn't exist.
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
         public RoomObjectBase getRoomObject(String name)
         {
-            return RoomObjects[name];
+            if (RoomObjects.ContainsKey(name))
+                return RoomObjects[name];
+            else
+                return null;
         }
 
         /// <summary>
@@ -138,12 +142,16 @@ namespace CS3005_Game.Environment
 
         /// <summary>
         /// Returns the Room text object with the given name.
+        /// Null if object doesn't exist.
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
         public ScreenText getTextObject(String name)
         {
-            return RoomTextObjects[name];
+            if (RoomTextObjects.ContainsKey(name))
+                return RoomTextObjects[name];
+            else
+                return null;
         }
 
         /// <summary>

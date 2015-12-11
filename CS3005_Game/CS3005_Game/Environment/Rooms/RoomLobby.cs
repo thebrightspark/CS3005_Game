@@ -17,6 +17,8 @@ namespace CS3005_Game.Environment.Rooms
         private bool isKeyDown = false;
 
         private String MenuContinue = "continue";
+        private String MenuCharacter = "character";
+        private String InfoGender = "infoGender";
         private String MenuSelect = "select";
 
         private List<ScreenTextWithBG> MenuObjects = new List<ScreenTextWithBG>();
@@ -25,12 +27,14 @@ namespace CS3005_Game.Environment.Rooms
         {
             addNewTextObject(new ScreenText(null, GameData.FontMain, Names.Text.GAME_NAME, Reference.WHITE, 10));
             addNewTextObject(new ScreenText(null, GameData.FontMain, Names.Text.LOBBY_TITLE, Color.DarkRed, 115));
-            addNewTextObject(new ScreenText(null, GameData.FontStats, Names.Text.LOBBY_CREDITS, Reference.WHITE, 5, Reference.SCREEN_HEIGHT - 20));
+            addNewTextObject(new ScreenText(null, GameData.FontStats, Names.Text.LOBBY_CREDITS, Reference.WHITE, 5, Reference.SCREEN_HEIGHT - 40));
             
-            //addNewTextObject(new ScreenTextWithBG(MenuPlay, Reference.BG_GREY, GameData.FontInfo, Names.Text.MENU_PLAY, Color.Black, Reference.SCREEN_GRID_HEIGHT / 2));
-            addNewTextObject(new ScreenTextWithBG(MenuContinue, Reference.BG_GREY, GameData.FontInfo, Names.Text.LOBBY_MENU_CONTINUE, Color.Black, (Reference.SCREEN_HEIGHT / 2) - 50));
-            addNewTextObject(new ScreenTextWithBG(MenuSelect, Reference.BG_GREY, GameData.FontInfo, Names.Text.LOBBY_MENU_LEVEL_SELECT, Color.Black, (Reference.SCREEN_HEIGHT / 2) + 50));
-            //addNewTextObject(new ScreenTextWithBG(MenuBack, Reference.BG_GREY, GameData.FontInfo, Names.Text.MENU_BACK, Color.Black, Reference.SCREEN_GRID_HEIGHT / 2));
+            addNewTextObject(new ScreenTextWithBG(MenuContinue, Reference.BG_GREY, GameData.FontInfo, Names.Text.LOBBY_MENU_PLAY, Color.Black, (Reference.SCREEN_HEIGHT / 2) - 50));
+            addNewTextObject(new ScreenTextWithBG(MenuCharacter, Reference.BG_GREY, GameData.FontInfo, Names.Text.LOBBY_MENU_CHARACTER, Color.Black, (Reference.SCREEN_HEIGHT / 2) + 50));
+            addNewTextObject(new ScreenText(InfoGender, GameData.FontInfoS, "", Color.Black, (Reference.SCREEN_HEIGHT / 2) + 90));
+            //addNewTextObject(new ScreenTextWithBG(MenuSelect, Reference.BG_GREY, GameData.FontInfo, Names.Text.LOBBY_MENU_LEVEL_SELECT, Color.Black, (Reference.SCREEN_HEIGHT / 2) + 50));
+
+            addNewTextObject(new ScreenText(null, GameData.FontInfoS, "Made by Mark Passey", Color.Black, Reference.SCREEN_HEIGHT - 100));
 
             //Save the menu objects to a private list for use later
             foreach (ScreenText s in getTextObjects().Values)
@@ -50,19 +54,21 @@ namespace CS3005_Game.Environment.Rooms
 
         public override void Update()
         {
-            if (!GameData.keyboard.IsKeyDown(Keys.Down) && !GameData.keyboard.IsKeyDown(Keys.Up))
+            getTextObject(InfoGender).setText(Names.Text.LOBBY_INFO_GENDER + GameData.player.sprite.getGender());
+
+            if (!GameData.keyboard.IsKeyDown(Config.keyUp) && !GameData.keyboard.IsKeyDown(Config.keyDown) && !GameData.keyboard.IsKeyDown(Config.keyAction))
                 isKeyDown = false;
 
             if(!isKeyDown)
             {
-                if (GameData.keyboard.IsKeyDown(Keys.Down) && selection < selectionMax)
+                if (GameData.keyboard.IsKeyDown(Config.keyDown) && selection < selectionMax)
                 {
                     //Down
                     selection++;
                     isKeyDown = true;
                     //Console.WriteLine("DOWN");
                 }
-                else if (GameData.keyboard.IsKeyDown(Keys.Up) && selection > 1)
+                else if (GameData.keyboard.IsKeyDown(Config.keyUp) && selection > 1)
                 {
                     //Up
                     selection--;
@@ -83,9 +89,9 @@ namespace CS3005_Game.Environment.Rooms
                 }
             }
 
-            if(GameData.keyboard.IsKeyDown(Keys.Enter))
+            if (!isKeyDown && GameData.keyboard.IsKeyDown(Config.keyAction))
             {
-                Console.WriteLine("Enter Pressed!");
+                isKeyDown = true;
                 //Enter
                 switch (selection)
                 {
@@ -105,8 +111,11 @@ namespace CS3005_Game.Environment.Rooms
                         }
                         break;
                     case 2:
+                        //Toggle Gender
+                        GameData.player.sprite.toggleGender();
+
                         //Level Select
-                        GameData.setCurrentRoom(Names.Rooms.LEVEL_SELECT);
+                        //GameData.setCurrentRoom(Names.Rooms.LEVEL_SELECT);
                         break;
                     default:
                         //Nothing

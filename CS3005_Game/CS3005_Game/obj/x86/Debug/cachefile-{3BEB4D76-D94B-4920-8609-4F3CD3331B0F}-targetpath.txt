@@ -7,3 +7,5 @@ Content\Textures\NumDisplay_1.xnb
 Content\Textures\NumDisplay_2.xnb
 Content\Textures\squareRed.xnb
 Content\Textures\squareYellow.xnb
+Content\Textures\NumFont.xnb
+Content\Fonts\FontInfoS.xnb

@@ -28,12 +28,18 @@ namespace CS3005_Game.Entity
             RIGHT
         };
         private MoveDir spriteDir;
+        private bool wasDoingActionLast = false;
 
         public Player()
         {
-            setCoords(-50, -50);
-            sprite = new PlayerSprite2D(false);
+            resetCoords();
+            sprite = new PlayerSprite2D(true);
             actionInfoText = new ScreenText("actionInfo", GameData.FontInfo, "", Reference.WHITE, 0, 0);
+        }
+
+        public void resetCoords()
+        {
+            setCoords(Reference.PLAYER_START_X, Reference.PLAYER_START_Y);
         }
 
         public void setCoords(float x, float y)
@@ -191,57 +197,39 @@ namespace CS3005_Game.Entity
             lastYPos = yPos;
 
             //Player movement / action
-            if (keyboard.IsKeyDown(Reference.keyLeft))
-            {
-                xPos -= Reference.playerMoveSpeed;
-                //move(Player.MoveDir.LEFT);
-            }
-            if (keyboard.IsKeyDown(Reference.keyRight))
-            {
-                xPos += Reference.playerMoveSpeed;
-                //move(Player.MoveDir.RIGHT);
-            }
-            if (keyboard.IsKeyDown(Reference.keyUp))
-            {
-                yPos -= Reference.playerMoveSpeed;
-                //move(Player.MoveDir.UP);
-            }
-            if (keyboard.IsKeyDown(Reference.keyDown))
-            {
-                yPos += Reference.playerMoveSpeed;
-                //move(Player.MoveDir.DOWN);
-            }
+            if (keyboard.IsKeyDown(Config.keyLeft))
+                xPos -= Config.playerMoveSpeed;
+            if (keyboard.IsKeyDown(Config.keyRight))
+                xPos += Config.playerMoveSpeed;
+            if (keyboard.IsKeyDown(Config.keyUp))
+                yPos -= Config.playerMoveSpeed;
+            if (keyboard.IsKeyDown(Config.keyDown))
+                yPos += Config.playerMoveSpeed;
 
-            if (keyboard.IsKeyDown(Reference.keyAction))
+            if (keyboard.IsKeyDown(Config.keyAction))
             {
-                //action(currentRoom);
+                if (!wasDoingActionLast)
+                {
+                    currentRoom.doPlayerAction = true;
+                    wasDoingActionLast = true;
+                }
             }
+            else
+                wasDoingActionLast = false;
 
             //Determines the texture of the player depending on movement
             if (xPos != lastXPos || yPos != lastYPos)
             {
                 //If player has moved
                 if (xPos < lastXPos)
-                {
-                    //Moving Left
                     spriteDir = MoveDir.LEFT;
-                }
                 else if (xPos > lastXPos)
-                {
-                    //Moving Right
                     spriteDir = MoveDir.RIGHT;
-                }
 
                 if (yPos < lastYPos)
-                {
-                    //Moving Up
                     spriteDir = MoveDir.UP;
-                }
                 else if (yPos > lastYPos)
-                {
-                    //Moving Down
                     spriteDir = MoveDir.DOWN;
-                }
 
                 sprite.setMoveDir(spriteDir);
             }

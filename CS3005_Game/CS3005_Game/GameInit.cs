@@ -27,6 +27,7 @@ namespace CS3005_Game
             //Loads the spritesheets
             GameData.SpriteSheet = Content.Load<Texture2D>(Reference.SPRITESHEET);
             GameData.PlayerSpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_PLAYER);
+            GameData.NumberSpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_NUMBER);
             GameData.Totem1SpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_TOTEMNUM1);
             GameData.Totem2SpriteSheet = Content.Load<Texture2D>(Reference.SPRITE_TOTEMNUM2);
             GameData.DebugSquareYellow = Content.Load<Texture2D>(Reference.SPRITE_DEBUGSQUARE_YELLOW);
@@ -35,11 +36,14 @@ namespace CS3005_Game
             GameData.FontMain = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontMain");
             GameData.FontStats = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontStats");
             GameData.FontInfo = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontInfo");
+            GameData.FontInfoS = Content.Load<SpriteFont>(Reference.PATH_FONTS + "FontInfoS");
             //Creates the plain textures
             GameData.TexturePlain = new Texture2D(graphics.GraphicsDevice, 1, 1);
             GameData.TexturePlain.SetData(new Color[] { Color.White });
             GameData.TexturePlainAlpha = new Texture2D(graphics.GraphicsDevice, 1, 1);
             GameData.TexturePlainAlpha.SetData(new Color[] { new Color(255, 255, 255, 32) });
+            GameData.TexturePlainAlphaDarker = new Texture2D(graphics.GraphicsDevice, 1, 1);
+            GameData.TexturePlainAlphaDarker.SetData(new Color[] { new Color(255, 255, 255, 200) });
 
             //Initialize textures
             TextureManager.init();

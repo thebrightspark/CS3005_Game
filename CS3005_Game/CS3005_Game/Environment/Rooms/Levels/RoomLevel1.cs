@@ -11,31 +11,69 @@ namespace CS3005_Game.Environment.Rooms.Levels
 {
     class RoomLevel1 : RoomLevelBase
     {
+        private readonly String Totem_1 = "n1";
+        private readonly String Totem_2 = "n2";
+        private readonly String Totem_Sum = "nTotal";
+        private readonly String Button_Add = "bAdd";
+        private readonly String Button_Sub = "bSub";
+
         public RoomLevel1() : base(Names.Rooms.LEVEL_1)
         {
-            //TODO: Create first level!
-            addNewRoomObject(new RoomObjectButton("1", 7, 7));
-            addNewRoomObject(new RoomObjectButton("2", 12, 7));
+            Random rand = new Random();
+            int randSum = rand.Next(6) + 4;
+            int randNum = rand.Next(randSum-2) + 1;
 
-            ((RoomObjectGate)getRoomObject(Names.Objects.GATE_EXIT)).openGate();
+            addNewRoomObject(new RoomObjectNumTotem(Totem_1, randNum, 4, 5));
+            addNewRoomObject(new RoomObjectNumTotem(Totem_2, 0, 6, 5));
+            addNewRoomObject(new RoomObjectNumTotem(Totem_Sum, randSum, 11, 5));
+
+            addNewRoomObject(new RoomObjectButton(Button_Add, TextureManager.DUNGEON_SPRITES.BUTTON_3, 6, 8));
+            addNewRoomObject(new RoomObjectButton(Button_Sub, TextureManager.DUNGEON_SPRITES.BUTTON_2, 7, 8));
+
+            addNewTextObject(new ScreenTextWithBG(null, Reference.BG_GREY, GameData.FontInfoS, Names.Text.LEVEL_1_INFO_1, Color.Black, 90, Reference.SCREEN_HEIGHT - 200));
+            addNewTextObject(new ScreenTextWithBG(null, Reference.BG_GREY, GameData.FontInfoS, Names.Text.LEVEL_1_INFO_2, Color.Black, 130));
+
+            //((RoomObjectGate)getRoomObject(Names.Objects.GATE_EXIT)).openGate();
 
             addNewTextObject(new ScreenText("PlayerDist", GameData.FontStats, "", Color.Red, 200, 15));
         }
 
         public override void Update()
         {
-            Point buttonPos = getRoomObject("Button1").getTilePosition();
-            Point playerPos = new Point((int)GameData.player.xPos, (int)GameData.player.yPos);
-            //getTextObject("PlayerDist").setText("Player Dist To Button -> " + Math.Sqrt(Math.Pow(playerPos.X - (buttonPos.X * Reference.PIXELS_PER_GRID_SQUARE), 2) + Math.Pow(playerPos.Y - (buttonPos.Y * Reference.PIXELS_PER_GRID_SQUARE), 2)));
+            /*
             RoomObjectBase obj = GameData.player.findClosestObject(this);
             String name;
             if(obj == null)
                 name = "null";
             else
                 name = obj.getName();
-            getTextObject("PlayerDist").setText("Closest Button -> " + name);
+            getTextObject("PlayerDist").setText("Closest -> " + name);
+            */
+
+            if (doPlayerAction)
+            {
+                RoomObjectBase obj = GameData.player.findClosestObject(this);
+                if (obj != null)
+                {
+                    String objName = obj.getName();
+                    if (objName == Button_Add || objName == Button_Sub)
+                        ((RoomObjectButton)obj).activate();
+                }
+            }
+
+            if (((RoomObjectButton)getRoomObject(Button_Add)).isActive())
+                ((RoomObjectNumTotem)getRoomObject(Totem_2)).increaseNumber();
+            if (((RoomObjectButton)getRoomObject(Button_Sub)).isActive())
+                ((RoomObjectNumTotem)getRoomObject(Totem_2)).decreaseNumber();
+
+            if ((((RoomObjectNumTotem)getRoomObject(Totem_1)).getNumber() + ((RoomObjectNumTotem)getRoomObject(Totem_2)).getNumber()) == ((RoomObjectNumTotem)getRoomObject(Totem_Sum)).getNumber())
+                gateExit.openGate();
+            else
+                gateExit.closeGate();
 
             base.Update();
+
+            doPlayerAction = false;
         }
     }
 }
